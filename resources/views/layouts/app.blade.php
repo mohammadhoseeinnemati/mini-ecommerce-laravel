@@ -1,10 +1,15 @@
 <!doctype html>
-<html lang="en" dir="rtl">
+<html lang="fa" dir="rtl">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>قالب فروشگاهی کارین</title>
+    <title>
+        {{config('project.project_title')}}
+        @isset($title)
+            | {{$title}}
+        @endisset
+    </title>
     <link rel="stylesheet" href="{{asset('assets/styles/app.css')}}">
     <!-- link -->
     <link rel="stylesheet" href="{{asset('assets/swiper/swiper.css')}}">

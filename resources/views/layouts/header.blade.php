@@ -12,88 +12,20 @@
                     <svg class="size-6 p-1.5 flex-center text-gray-100 bg-blue-600 rounded-full w-9 h-9">
                         <use href="#search" />
                     </svg>
-                    <input placeholder="جستجو در کارین..." type="text">
-                </div>
-                <!-- Search Modal -->
-                <div class="search-modal space-y-4">
-                    <!-- Result -->
-                    <div>
-                            <span class="flex items-center text-sm gap-x-1 text-gray-600 dark:text-gray-200">
-                                <p>نتیجه جستجو : <span class="font-DanaMedium text-blue-400">iphone</span></p>
-                            </span>
-                        <ul
-                            class="pt-4 text-gray-500 dark:text-gray-300 flex flex-col gap-y-4 child:flex-between child:cursor-pointer">
-                            <li>
-                                <a href="#" class="flex items-center gap-x-2">
-                                    <svg class="size-5">
-                                        <use href="#search" />
-                                    </svg>
-                                    آیفون 14
-                                </a>
-                                <svg class="size-4">
-                                    <use href="#arrow-up-right" />
-                                </svg>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center gap-x-2">
-                                    <svg class="size-5">
-                                        <use href="#search" />
-                                    </svg>
-                                    قاب آیفون
-                                </a>
-                                <svg class="size-4">
-                                    <use href="#arrow-up-right" />
-                                </svg>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center gap-x-2">
-                                    <svg class="size-5">
-                                        <use href="#search" />
-                                    </svg>
-                                    کاور ایفون 16
-                                </a>
-                                <svg class="size-4">
-                                    <use href="#arrow-up-right" />
-                                </svg>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Trend -->
-                    <div class="pt-4">
-                            <span class="flex items-center gap-x-1 text-sm text-gray-500 dark:text-gray-200">
-                                <svg class="size-4">
-                                    <use href="#fire" />
-                                </svg>
-                                <p>جستجو های پرطرفدار :</p>
-                            </span>
-                        <ul class="w-full flex items-center gap-1.5 mt-3 child:search-modal-list-item">
-                            <li>
-                                <a href="#">#آیفون</a>
-                            </li>
-                            <li>
-                                <a href="#">#لپ تاپ</a>
-                            </li>
-                            <li>
-                                <a href="#">#هدفون</a>
-                            </li>
-                            <li>
-                                <a href="#">#هلدر</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <input placeholder="جستجو در محصولات..." type="text">
                 </div>
             </div>
             <!-- Logo -->
             <a href="index.html" class="flex flex-col text-center ml-20">
                     <span class="font-MorabbaMedium text-4xl flex items-center">
-                        <span class="text-blue-500">کارین</span> شاپ
+                        فروشگاه<span class="text-blue-500">{{config('project.project_name')}}</span>
                     </span>
                 <p class="font-DanaMedium text-gray-400"> خرید موبایل و لپ‌تاپ</p>
             </a>
             <!--  Action -->
             <div class="flex items-center gap-x-3">
                 <!-- LOGIN -->
-                <button class="hidden flex-center py-2 px-4  app-border rounded-full app-hover">
+                <button class=" flex-center py-2 px-4  app-border rounded-full app-hover">
                     <a href="#" class="flex items-center gap-x-2">
                         <p>ورود | ثبت‌نام</p>
                         <svg class="size-5">
@@ -263,176 +195,11 @@
                         صفحه اصلی
                     </a>
                 </li>
-                <!-- MENU ITEM --- Mega Menu -->
-                <li class="menu-item megamenu-link">
-                    <a href="" class="menu-item_link flex items-center justify-center gap-x-1">
-                        دسته بندی ها
-                        <svg class="size-4">
-                            <use href="#chevron" />
-                        </svg>
+
+                <li class="menu-item">
+                    <a href="index.html" class="menu-item_link">
+                       دسته بندی ها
                     </a>
-                    <div
-                        class="megamenu">
-                        <!-- RIGHT MENU -->
-                        <ul class="megamenu_category">
-                            <li class="megamenu_category-item active">
-                                <svg class="w-5 h-5">
-                                    <use href="#mobile"></use>
-                                </svg>
-                                <a href="">موبایل</a>
-                            </li>
-                            <li class="megamenu_category-item ">
-                                <svg class="w-5 h-5">
-                                    <use href="#tv"></use>
-                                </svg>
-                                <a href="">لپتاپ</a>
-                            </li>
-                            <li class="megamenu_category-item ">
-                                <svg class="w-5 h-5">
-                                    <use href="#tablet"></use>
-                                </svg>
-                                <a href="">تبلت</a>
-                            </li>
-                            <li class="megamenu_category-item ">
-                                <svg class="w-5 h-5">
-                                    <use href="#headphone"></use>
-                                </svg>
-                                <a href="">هدفون</a>
-                            </li>
-                            <li class="megamenu_category-item ">
-                                <svg class="w-5 h-5">
-                                    <use href="#tag"></use>
-                                </svg>
-                                <a href="">تخفیف</a>
-                            </li>
-                            <li class="megamenu_category-item ">
-                                <svg class="w-5 h-5">
-                                    <use href="#tv"></use>
-                                </svg>
-                                <a href="">کامپیوتر</a>
-                            </li>
-                        </ul>
-
-                        <div class="megamenu_left">
-                            <a href="shop.html" class="text-blue-400 flex items-center gap-x-0.5 text-sm mb-4">
-                                مشاهده همه
-                                <svg class="size-4 rotate-90">
-                                    <use href="#chevron" />
-                                </svg>
-                            </a>
-                            <ul class="megamenu_left-item active">
-                                <div class="megamenu_left-menu">
-                                    <h2 class="megamenu_left-title">برندهای مختلف :</h2>
-                                    <li>
-                                        <a href="shop.html">گوشی آیفون</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">گوشی سامسونگ</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">گوشی هواووی</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">گوشی شیامی</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">گوشی نوکیا</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">گوشی آنر</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">گوشی آیفون</a>
-                                    </li>
-                                </div>
-                                <div class="megamenu_left-menu">
-                                    <h2 class="megamenu_left-title">گوشی بر اساس قیمت</h2>
-                                    <li><a href="shop.html">گوشی ارزان</a></li>
-                                    <li><a href="shop.html">گوشی موبایل قسطی</a></li>
-                                    <li><a href="shop.html">گوشی تا ۲ میلیون تومان</a></li>
-                                    <li><a href="shop.html">گوشی تا ۵ میلیون تومان</a></li>
-                                    <li><a href="shop.html">گوشی تا ۷ میلیون تومان</a></li>
-                                    <li><a href="shop.html">گوشی تا ۱۵ میلیون تومان</a></li>
-                                    <li><a href="shop.html">گوشی بالای ۱۵ میلیون تومان</a></li>
-                                </div>
-                                <div class="megamenu_left-menu">
-                                    <h2 class="megamenu_left-title">لوازم جانبی موبایل</h2>
-                                    <li><a href="shop.html">شارژر گوشی</a></li>
-                                    <li><a href="shop.html">شارژر وایرلس</a></li>
-                                    <li><a href="shop.html">قاب و کاور گوشی</a></li>
-                                    <li><a href="shop.html">گلس گوشی</a></li>
-                                    <li><a href="shop.html">هولدر گوشی موبایل</a></li>
-                                    <li><a href="shop.html">کابل شارژ و مبدل</a></li>
-                                    <li><a href="shop.html">پاوربانک (شارژر همراه)</a></li>
-                                </div>
-
-                            </ul>
-                            <ul class="megamenu_left-item ">
-                                <div class="megamenu_left-menu">
-                                    <h2 class="megamenu_left-title">برندهای مختلف :</h2>
-                                    <li><a href="shop.html">لپ‌تاپ اپل (MacBook)</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ ایسوس</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ لنوو</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ اچ‌پی</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ دل</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ ام‌اس‌آی</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ ایسر</a></li>
-                                </div>
-
-                                <div class="megamenu_left-menu">
-                                    <h2 class="megamenu_left-title">لپ‌تاپ بر اساس قیمت</h2>
-                                    <li><a href="shop.html">لپ‌تاپ اقتصادی</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ تا ۱۰ میلیون تومان</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ تا ۲۰ میلیون تومان</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ تا ۳۰ میلیون تومان</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ تا ۵۰ میلیون تومان</a></li>
-                                    <li><a href="shop.html">لپ‌تاپ بالای ۵۰ میلیون تومان</a></li>
-                                </div>
-
-                                <div class="megamenu_left-menu">
-                                    <h2 class="megamenu_left-title">لوازم جانبی لپ‌تاپ</h2>
-                                    <li><a href="shop.html">کیف و کوله لپ‌تاپ</a></li>
-                                    <li><a href="shop.html">کابل و آداپتور لپ‌تاپ</a></li>
-                                    <li><a href="shop.html">استند و پایه خنک‌کننده</a></li>
-                                    <li><a href="shop.html">ماوس و کیبورد</a></li>
-                                    <li><a href="shop.html">هارد اکسترنال و SSD</a></li>
-                                    <li><a href="shop.html">پد ماوس</a></li>
-                                </div>
-
-                            </ul>
-                            <ul class="megamenu_left-item">
-                                <div class="megamenu_left-menu">
-                                    <h2 class="megamenu_left-title">برندهای مختلف تبلت</h2>
-                                    <li><a href="shop.html">تبلت اپل (iPad)</a></li>
-                                    <li><a href="shop.html">تبلت سامسونگ</a></li>
-                                    <li><a href="shop.html">تبلت لنوو</a></li>
-                                    <li><a href="shop.html">تبلت مایکروسافت (Surface)</a></li>
-                                    <li><a href="shop.html">تبلت هواوی</a></li>
-                                    <li><a href="shop.html">تبلت شیائومی</a></li>
-                                </div>
-
-                                <div class="megamenu_left-menu">
-                                    <h2 class="megamenu_left-title">لوازم جانبی تبلت</h2>
-                                    <li><a href="shop.html">کیف و کاور تبلت</a></li>
-                                    <li><a href="shop.html">قلم لمسی</a></li>
-                                    <li><a href="shop.html">کیبورد و استند</a></li>
-                                    <li><a href="shop.html">گلس و محافظ صفحه</a></li>
-                                    <li><a href="shop.html">کابل و شارژر</a></li>
-                                    <li><a href="shop.html">پاوربانک</a></li>
-                                </div>
-
-                            </ul>
-                            <ul class="megamenu_left-item">
-                                <li>منوی4  </li>
-                            </ul>
-                            <ul class="megamenu_left-item">
-                                <li>منوی5  </li>
-                            </ul>
-                            <ul class="megamenu_left-item">
-                                <li>منوی6  </li>
-                            </ul>
-                        </div>
-                    </div>
                 </li>
 
                 <li class="menu-item">
@@ -440,132 +207,25 @@
                         فروشگاه
                     </a>
                 </li>
+
                 <li class="menu-item">
-                    <a href="articles.html" class="menu-item_link">
-                        وبلاگ
+                    <a href="shop.html" class="menu-item_link">
+                        درباره ما
                     </a>
                 </li>
-                <!-- MENU ITEM --- Solid submenu -->
-                <li class="menu-item group">
-                    <a class="menu-item_link cursor-pointer">
-                        منوی ساده
-                        <svg class="size-4 group-hover:rotate-180 duration-300">
-                            <use href="#chevron" />
-                        </svg>
+
+                <li class="menu-item">
+                    <a href="shop.html" class="menu-item_link">
+                        سوالات متداول
                     </a>
-                    <ul class="solid-menu">
-                        <li>
-                            <a href="aboute-us.html">درباره ما</a>
-                        </li>
-                        <li>
-                            <a href="questions.html">سوالات متداول</a>
-                        </li>
-                        <li>
-                            <a href="contact-us.html">تماس با ما</a>
-                        </li>
-                        <li class="solid-submenu_link">
-                            <a href="#">صفحات</a>
-                            <svg class="size-4 rotate-90 duration-300">
-                                <use href="#chevron" />
-                            </svg>
-                            <ul class="solid-submenu">
-                                <li>
-                                    <a href="shop.html">فروشگاه</a>
-                                </li>
-                                <li>
-                                    <a href="product-details.html">جزئیات محصول</a>
-                                </li>
-                                <li>
-                                    <a href="dashboard.html">پنل کاربری</a>
-                                </li>
-                                <li>
-                                    <a href="shopping-cart.html">سبد خرید</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">صفحه ورود</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="shop.html" class="menu-item_link">
+                        تماس با ما
+                    </a>
                 </li>
             </ul>
-            <!-- Addres -->
-            <div class="relative">
-                <button class="flex items-center gap-x-1 citylist-open">
-                    <svg class="size-6">
-                        <use href="#map" />
-                    </svg>
-                    <p>آدرس خود را انتخاب کنید</p>
-                </button>
-                <div class="citylist-menu z-30">
-                    <!-- Search city -->
-                    <button class="flex bg-gray-200 dark:bg-gray-700 gap-x-1 w-full items-center p-2 rounded-lg">
-                        <svg class="size-6 text-gray-400">
-                            <use href="#search" />
-                        </svg>
-                        <input type="text" class="w-full placeholder:text-gray-400" placeholder="جستجوی شهر...">
-                    </button>
-                    <h2 class="my-3 pr-1.5 font-DanaMedium">شهرهای پرتکرار :</h2>
-                    <!-- City list -->
-                    <ul class="city-list">
-                        <li>
-                            <a href="#">
-                                <svg class="size-5">
-                                    <use href="#map" />
-                                </svg>
-                                تهران
-                            </a>
-                            <svg class="size-4 rotate-90">
-                                <use href="#chevron" />
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <svg class="size-5">
-                                    <use href="#map" />
-                                </svg>
-                                اصفهان
-                            </a>
-                            <svg class="size-4 rotate-90">
-                                <use href="#chevron" />
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <svg class="size-5">
-                                    <use href="#map" />
-                                </svg>
-                                مشهد
-                            </a>
-                            <svg class="size-4 rotate-90">
-                                <use href="#chevron" />
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <svg class="size-5">
-                                    <use href="#map" />
-                                </svg>
-                                شیراز
-                            </a>
-                            <svg class="size-4 rotate-90">
-                                <use href="#chevron" />
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <svg class="size-5">
-                                    <use href="#map" />
-                                </svg>
-                                تبریز
-                            </a>
-                            <svg class="size-4 rotate-90">
-                                <use href="#chevron" />
-                            </svg>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
     <!-- Mobile -->
@@ -583,7 +243,7 @@
                 <!--  MENU MOBILE header -->
                 <div class="flex w-full items-center justify-between border-b-normal pb-4">
                     <a href="index.html" class="text-xl font-MorabbaMedium">
-                        <span class="text-blue-500">کارین</span> شاپ
+                         فروشگاه <span class="text-blue-500">{{config('project.project_name')}}</span>
                     </a>
                     <button class="close-menu-mobile">
                         <svg class="size-5 text-gray-500 dark:text-gray-200">
@@ -593,290 +253,6 @@
                 </div>
                 <!-- MENU MOBILE CATEGORY & ACTION  -->
                 <ul class="flex flex-col gap-y-2 text-gray-800 dark:text-gray-100 mt-4">
-                    <li>
-                            <span class="open-category mobile-menu-item">
-                                <svg class="size-5">
-                                    <use href="#squares" />
-                                </svg>
-                                <a href="#">دسته بندی</a>
-                            </span>
-                        <!-- MENU CATEGORY SLIDE -->
-                        <div class="category-slide">
-                            <div class=" w-full border-b-normal pb-4">
-                                    <span class="close-category-slide flex items-center gap-x-1 cursor-pointer">
-                                        <svg class="size-4">
-                                            <use href="#arrow" />
-                                        </svg>
-                                        دسته بندی
-                                    </span>
-                            </div>
-                            <ul class="child:flex pt-4 child:cursor-pointer space-y-2">
-                                <li>
-                                    <div class="relative open-detail-category">
-                                            <span class="mobile-menu-category-badge">
-                                                موبایل
-                                            </span>
-                                        <img src="./assets/images/category/1.webp" class="h-28 w-full object-cover rounded"
-                                             alt="">
-                                    </div>
-                                    <!-- Mobile SLIDE -->
-                                    <div class="detail-category">
-                                            <span
-                                                class="close-detail-category flex-center gap-x-1 mx-4 bg-gray-100 dark:bg-gray-900 rounded p-2 cursor-pointer">
-                                                موبایل
-                                                <svg class="size-4">
-                                                    <use href="#arrow" />
-                                                </svg>
-                                            </span>
-                                        <ul
-                                            class="mt-5 flex flex-col child:py-3 divide-y-2 dark:divide-gray-700 child:px-4">
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">گوشی‌های هوشمند</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">آیفون</li>
-                                                    <li href="">سامسونگ</li>
-                                                    <li href="">شیائومی</li>
-                                                    <li href="" class="text-red-500">پرفروش‌ها</li>
-                                                    <li href="">نوکیا</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">لوازم جانبی</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">قاب موبایل</li>
-                                                    <li href="">محافظ صفحه</li>
-                                                    <li href="">پاوربانک</li>
-                                                    <li href="" class="text-red-500">تخفیف‌ها</li>
-                                                    <li href="">شارژر</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">گجت‌های پوشیدنی</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">ساعت هوشمند</li>
-                                                    <li href="">دستبند هوشمند</li>
-                                                    <li href="">هدفون بی‌سیم</li>
-                                                    <li href="" class="text-red-500">جدیدترین‌ها</li>
-                                                    <li href="">هدست</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">لوازم مخصوص بازی</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">کنترلر بازی</li>
-                                                    <li href="">دسته بازی موبایل</li>
-                                                    <li href="">لوازم جانبی گیمرها</li>
-                                                    <li href="" class="text-red-500">محصولات جدید</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="relative open-detail-category">
-                                            <span class="mobile-menu-category-badge">
-                                                لپ تاپ
-                                            </span>
-                                        <img src="./assets/images/category/2.jpg" class="h-28 w-full object-cover rounded"
-                                             alt="">
-                                    </div>
-                                    <div class="detail-category">
-                                            <span
-                                                class="close-detail-category flex-center gap-x-1 mx-4 bg-gray-100 dark:bg-gray-900 rounded p-2 cursor-pointer">
-                                                لپ تاپ
-                                                <svg class="size-4">
-                                                    <use href="#arrow" />
-                                                </svg>
-                                            </span>
-                                        <ul
-                                            class="mt-5 flex flex-col child:py-3 divide-y-2 dark:divide-gray-700 child:px-4">
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">لپ‌تاپ‌ها</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">ایسر</li>
-                                                    <li href="">دل</li>
-                                                    <li href="">اچ‌پی</li>
-                                                    <li href="" class="text-red-500">پرفروش‌ها</li>
-                                                    <li href="">لنوو</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">لوازم جانبی</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">کیبورد</li>
-                                                    <li href="">ماوس</li>
-                                                    <li href="">کوله لپ‌تاپ</li>
-                                                    <li href="" class="text-red-500">محصولات تخفیف‌دار</li>
-                                                    <li href="">پایه خنک‌کننده</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">قطعات و تجهیزات</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">هارد اکسترنال</li>
-                                                    <li href="">رم لپ‌تاپ</li>
-                                                    <li href="">شارژر لپ‌تاپ</li>
-                                                    <li href="" class="text-red-500">قطعات ویژه</li>
-                                                    <li href="">کارت گرافیک</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">نرم‌افزارها</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">آنتی‌ویروس</li>
-                                                    <li href="">نرم‌افزارهای اداری</li>
-                                                    <li href="">نرم‌افزارهای طراحی</li>
-                                                    <li href="" class="text-red-500">جدیدترین نرم‌افزارها</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="relative open-detail-category">
-                                            <span class="mobile-menu-category-badge">
-                                                هدفون
-                                            </span>
-                                        <img src="./assets/images/category/4.webp" class="h-28 w-full object-cover rounded"
-                                             alt="">
-                                    </div>
-                                    <div class="detail-category">
-                                            <span
-                                                class="close-detail-category flex-center gap-x-1 mx-4 bg-gray-100 dark:bg-gray-900 rounded p-2 cursor-pointer">
-                                                هدفون
-                                                <svg class="size-4">
-                                                    <use href="#arrow" />
-                                                </svg>
-                                            </span>
-                                        <ul
-                                            class="mt-5 flex flex-col child:py-3 divide-y-2 dark:divide-gray-700 child:px-4">
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">هدفون‌های بی‌سیم</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">ایرپاد</li>
-                                                    <li href="">هدفون‌های بلوتوثی</li>
-                                                    <li href="">هدفون‌های ورزشی</li>
-                                                    <li href="" class="text-red-500">محصولات تخفیف‌دار</li>
-                                                    <li href="">هدفون‌های نویزگیر</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">هدفون‌های باسیم</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">هدفون‌های استودیویی</li>
-                                                    <li href="">هدفون‌های گیمینگ</li>
-                                                    <li href="">هدفون‌های اقتصادی</li>
-                                                    <li href="" class="text-red-500">مدل‌های ویژه</li>
-                                                    <li href="">هدفون‌های حرفه‌ای</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">لوازم جانبی هدفون</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">کیس شارژ</li>
-                                                    <li href="">پد گوش</li>
-                                                    <li href="">کابل و مبدل</li>
-                                                    <li href="" class="text-red-500">محصولات تخفیف‌دار</li>
-                                                    <li href="">هولدر هدفون</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                    <span class="flex group items-center justify-between open-submenu">
-                                                        <a href="#">برندها</a>
-                                                        <svg class="size-4 rotate-90">
-                                                            <use href="#chevron" />
-                                                        </svg>
-                                                    </span>
-                                                <ul
-                                                    class="menu-category-submenu child:list-disc child-hover:mr-2 child:transition-all child:duration-300">
-                                                    <li href="">سونی</li>
-                                                    <li href="">بوز</li>
-                                                    <li href="">جبرا</li>
-                                                    <li href="" class="text-red-500">برندهای تخفیف‌دار</li>
-                                                    <li href="">انکر</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="relative open-detail-category">
-                                            <span class="mobile-menu-category-badge">
-                                                پرفروش ها
-                                            </span>
-                                        <img src="./assets/images/category/3.webp" class="h-28 w-full object-cover rounded"
-                                             alt="">
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
                     <li class="mobile-menu-item">
                         <svg class="size-5">
                             <use href="#user" />
@@ -885,9 +261,9 @@
                     </li>
                     <li class="mobile-menu-item">
                         <svg class="size-5">
-                            <use href="#heart" />
+                            <use href="#squares" />
                         </svg>
-                        <a href="dashboard-favorite.html">علاقه مندی ها</a>
+                        <a href="#">دسته بندی</a>
                     </li>
                     <li class="mobile-menu-item">
                         <svg class="size-5">
@@ -912,7 +288,7 @@
             <!-- Logo -->
             <a href="index.html" class="flex flex-col text-center">
                     <span class="font-MorabbaMedium text-3xl flex items-center">
-                        <span class="text-blue-500">کارین</span> شاپ
+                         فروشگاه<span class="text-blue-500">{{config('project.project_name')}}</span>
                     </span>
             </a>
             <!-- Toggle theme -->
@@ -930,7 +306,7 @@
             <svg class=" size-6">
                 <use href="#search" />
             </svg>
-            <p>جستجو در <span class="font-MorabbaMedium">کارین شاپ</span></p>
+            <p>جستجو در <span class="font-MorabbaMedium">محصولات</span></p>
         </button>
         <!-- Search Moadal -->
         <div class="mobile_search-modal">
