@@ -25,54 +25,58 @@
             <!--  Action -->
             <div class="flex items-center gap-x-3">
                 <!-- LOGIN -->
-                <button class=" flex-center py-2 px-4  app-border rounded-full app-hover">
-                    <a href="#" class="flex items-center gap-x-2">
-                        <p>ورود | ثبت‌نام</p>
-                        <svg class="size-5">
-                            <use href="#arrow-left-end" />
-                        </svg>
-                    </a>
-                </button>
-                <!-- Account Btn -->
-                <button class="group relative flex-center py-2 px-4 app-border rounded-full app-hover delay-75">
-                    <a href="dashboard.html"  class="flex items-center gap-x-1">
-                        <svg class="size-5">
-                            <use href="#user" />
-                        </svg>
-                        <p>حساب کاربری</p>
-                    </a>
-                    <div
-                        class="absolute dark:border-none border border-gray-100 w-52 p-2 bg-white text-gray-900 dark:text-gray-100 flex flex-col gap-y-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-12 transition-all delay-100 dark:bg-gray-700 top-20 rounded-lg text-base shadow child:transition-all duration-300 child:py-1.5 child:px-2 z-30 child:rounded-lg child:w-full">
-                        <a href="dashboard-orders.html"
-                           class="flex items-center gap-x-2  hover:bg-blue-500 hover:text-gray-100">
-                            <svg class="h-5 w-5">
-                                <use href="#user"></use>
+                @if(auth()->check())
+                    <!-- Account Btn -->
+                    <button class="group relative flex-center py-2 px-4 app-border rounded-full app-hover delay-75">
+                        <a href="dashboard.html"  class="flex items-center gap-x-1">
+                            <svg class="size-5">
+                                <use href="#user" />
                             </svg>
-                            سفارشات من
+                            <p>حساب کاربری</p>
                         </a>
-                        <a href="dashboard-messages.html"
-                           class="flex items-center gap-x-2  hover:bg-blue-500 hover:text-gray-100">
-                            <svg class="h-5 w-5">
-                                <use href="#envelope"></use>
+                        <div
+                            class="absolute dark:border-none border border-gray-100 w-52 p-2 bg-white text-gray-900 dark:text-gray-100 flex flex-col gap-y-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-12 transition-all delay-100 dark:bg-gray-700 top-20 rounded-lg text-base shadow child:transition-all duration-300 child:py-1.5 child:px-2 z-30 child:rounded-lg child:w-full">
+                            <a href="dashboard-orders.html"
+                               class="flex items-center gap-x-2  hover:bg-blue-500 hover:text-gray-100">
+                                <svg class="h-5 w-5">
+                                    <use href="#user"></use>
+                                </svg>
+                                سفارشات من
+                            </a>
+                            <a href="dashboard-messages.html"
+                               class="flex items-center gap-x-2  hover:bg-blue-500 hover:text-gray-100">
+                                <svg class="h-5 w-5">
+                                    <use href="#envelope"></use>
+                                </svg>
+                                لیست پیام ها
+                            </a>
+                            <a href="dashboard-account.html"
+                               class="flex items-center gap-x-2  hover:bg-blue-500 hover:text-gray-100">
+                                <svg class="h-5 w-5">
+                                    <use href="#cog"></use>
+                                </svg>
+                                اطلاعات کاربری
+                            </a>
+                            <a href="#"
+                               class="flex items-center gap-x-2  hover:bg-red-500 dark:hover:bg-red-500 hover:text-gray-100">
+                                <svg class="h-5 w-5">
+                                    <use href="#arrow-left-end"></use>
+                                </svg>
+                                خروج از حساب
+                            </a>
+                        </div>
+                    </button>
+                @else()
+                    <button class=" flex-center py-2 px-4  app-border rounded-full app-hover">
+                        <a href="{{route('auth.login.index')}}" class="flex items-center gap-x-2">
+                            <p>ورود | ثبت‌نام</p>
+                            <svg class="size-5">
+                                <use href="#arrow-left-end" />
                             </svg>
-                            لیست پیام ها
                         </a>
-                        <a href="dashboard-account.html"
-                           class="flex items-center gap-x-2  hover:bg-blue-500 hover:text-gray-100">
-                            <svg class="h-5 w-5">
-                                <use href="#cog"></use>
-                            </svg>
-                            اطلاعات کاربری
-                        </a>
-                        <a href="#"
-                           class="flex items-center gap-x-2  hover:bg-red-500 dark:hover:bg-red-500 hover:text-gray-100">
-                            <svg class="h-5 w-5">
-                                <use href="#arrow-left-end"></use>
-                            </svg>
-                            خروج از حساب
-                        </a>
-                    </div>
-                </button>
+                    </button>
+                @endif
+
                 <!-- Toggle theme -->
                 <button class="toggle-theme flex-center p-2 app-border rounded-full app-hover">
                     <svg class="inline-block dark:hidden size-6">
@@ -418,43 +422,5 @@
             <a href="dashboard.html">حساب من</a>
         </li>
     </ul>
-    </div>
-    <!-- Slider -->
-    <div class="px-3 lg:container group w-full mt-4 lg:mt-10">
-        <div dir="rtl" class="swiper header-slider h-52 md:h-96 cursor-pointer">
-            <div class="swiper-wrapper">
-                <a href="shop.html" class="swiper-slide">
-                    <img src="./assets/images/slider/4.webp" class="rounded-xl" alt="">
-                </a >
-                <a href="shop.html" class="swiper-slide">
-                    <img src="./assets/images/slider/1.jpg" class="rounded-xl" alt="">
-                </a >
-                <a href="shop.html" class="swiper-slide">
-                    <img src="./assets/images/slider/2.jpg" class="rounded-xl" alt="">
-                </a >
-                <a href="shop.html" class="swiper-slide">
-                    <img src="./assets/images/slider/3.gif" class="rounded-xl" alt="">
-                </a >
-            </div>
-            <div class="swiper-pagination-wrapper">
-                <div class="swiper-pagination"></div>
-            </div>
-
-            <!-- Swiper Navigation -->
-            <div
-                class="absolute z-10 bottom-5 opacity-0 invisible group-hover:opacity-100 transition-all duration-300 group-hover:visible right-6 hidden lg:flex items-center gap-x-2 child:flex-center child:w-9 child:h-9 child:cursor-pointer child:bg-white child:dark:bg-gray-800 child:text-gray-700 child:dark:text-gray-200 child:rounded-full child:shadow child-hover:text-blue-600 child-hover:dark:text-blue-500">
-                <button class="button-prev">
-                    <svg class="size-5 -rotate-90">
-                        <use href="#chevron" />
-                    </svg>
-                </button>
-                <button class="button-next">
-                    <svg class="size-5 rotate-90">
-                        <use href="#chevron" />
-                    </svg>
-                </button>
-            </div>
-
-        </div>
     </div>
 </header>

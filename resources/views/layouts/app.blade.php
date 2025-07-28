@@ -31,11 +31,16 @@
 
 @include('layouts.icons')
 
-@include('layouts.header')
+@if(!isset($withoutHeader))
+    @include('layouts.header')
+@endif
 
 @yield('content')
 
-@include('layouts.footer')
+@if(!isset($withoutFooter))
+    @include('layouts.footer')
+@endif
+
 
 <!-- Overlay -->
 <div class="overlay"></div>
