@@ -3,7 +3,7 @@
     <div class=" relative w-full bg-gray-900 dark:bg-gray-800 text-white rounded-2xl p-4 lg:p-9">
         <div class="flex items-start flex-col gap-x-7 lg:gap-x-10 gap-y-10 lg:flex-row flex-wrap">
             <div class="flex-[2] w-full">
-                <h2 class="footer_title">درباره کارین شاپ</h2>
+                <h2 class="footer_title">درباره {{config('project.project_title')}}</h2>
                 <p class="leading-8 text-gray-400 mb-5">در فروشگاه آنلاین ما، بهترین مدل‌های موبایل و لپ‌تاپ از
                     برندهای معتبر جهانی را با کیفیت بالا و قیمتی مناسب برای شما فراهم آورده‌ایم. با انتخاب محصولات
                     ما، تجربه‌ای حرفه‌ای و لذت‌بخش از فناوری را در خانه یا محل کار داشته باشید.
@@ -107,17 +107,9 @@
         <div
             class="w-full rounded-xl bg-gray-950 dark:bg-gray-900 flex flex-col md:flex-row gap-y-4 items-center justify-between p-4 md:p-6 mt-6">
             <a href="#" class="text-3xl font-MorabbaMedium">
-                <span class="text-blue-500">کارین</span> شاپ
+                فروشگاه <span class="text-blue-500">{{config('project.project_name')}}</span>
             </a>
-            <div
-                class="bg-gray-900 dark:bg-gray-800 p-1.5 rounded-xl w-72 lg:w-[350px] flex items-center justify-between">
-                <input type="text" class="bg-transparent text-gray-200 px-2 w-full"
-                       placeholder="از جدیدترین تخفیف ها با خبر شوید                    " />
-                <button class="px-4 py-1 bg-blue-500 rounded-xl font-DanaMedium">
-                    ثبت
-                </button>
-            </div>
         </div>
     </div>
-    <p class="text-center text-sm my-4 text-gray-400">Copyright © 2025 Karin. All rights reserved.</p>
+    <p class="text-center text-sm my-4 text-gray-400">Copyright © {{now()->year}} {{config('project.project_name_en')}}. All rights reserved</p>
 </footer>
