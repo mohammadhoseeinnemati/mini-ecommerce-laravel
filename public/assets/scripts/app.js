@@ -60,7 +60,7 @@ searchButton?.addEventListener('click', () => {
   searchOverlay.classList.add('active');
 });
 
-// Event Listener for Overlay Click 
+// Event Listener for Overlay Click
 overlay?.addEventListener('click', () => {
   overlay.classList.remove('active');
   searchModal.classList.remove('active');
@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// formvalidatiom 
+// formvalidatiom
 document.addEventListener("DOMContentLoaded", function () {
   const inputField = document.querySelector("input[type='text']");
   const errorMessage = document.querySelector("p.text-error");
@@ -253,19 +253,19 @@ document.addEventListener("DOMContentLoaded", function () {
     return "";
   }
 
-  inputField?.addEventListener("input", function () {
-    const error = validateInput(inputField.value.trim());
-
-    if (error) {
-      errorMessage.textContent = error;
-      errorMessage.classList.add("active");
-      submitButton.classList.add("submit-btn-invisable");
-    } else {
-      errorMessage.textContent = "";
-      errorMessage.classList.remove("active");
-      submitButton.classList.remove("submit-btn-invisable");
-    }
-  });
+  // inputField?.addEventListener("input", function () {
+  //   const error = validateInput(inputField.value.trim());
+  //
+  //   if (error) {
+  //     errorMessage.textContent = error;
+  //     errorMessage.classList.add("active");
+  //     submitButton.classList.add("submit-btn-invisable");
+  //   } else {
+  //     errorMessage.textContent = "";
+  //     errorMessage.classList.remove("active");
+  //     submitButton.classList.remove("submit-btn-invisable");
+  //   }
+  // });
 });
 
 
@@ -384,7 +384,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// PASSWORD INPUT 
+// PASSWORD INPUT
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("[data-toggle='password']").forEach(function (wrapper) {
     const passwordInput = wrapper.querySelector("input");
@@ -526,7 +526,7 @@ function toggleAccordion(index) {
     icon.classList.remove('-rotate-90');
   } else {
     content.style.maxHeight = content.scrollHeight + 'px';
-    icon.classList.add('-rotate-90'); 
+    icon.classList.add('-rotate-90');
   }
 }
 

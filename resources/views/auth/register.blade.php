@@ -47,6 +47,12 @@
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <p class="mb-2 text-gray-800 dark:text-gray-100 font-DanaMedium text-lg">ساخت حساب کاربری</p>
             <form class="space-y-5" action="" method="POST">
+                @csrf
+                @error('general')
+                    <div>
+                        <span style="color: rgb(244 63 94)">{{$message}}</span>
+                    </div>
+                @enderror
                 <div>
                     <label for="first_name" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">
                         نام
@@ -127,7 +133,7 @@
                 </div>
 
                 <div>
-                    <label for="password" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">لطفا شماره
+                    <label for="password" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">
                         رمز عبور
                     </label>
                     <div class="mt-3">
@@ -147,7 +153,7 @@
                     </p>
                     @enderror
                 </div><div>
-                    <label for="password" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">لطفا شماره
+                    <label for="password" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">
                          تکراررمزعبور
                     </label>
                     <div class="mt-3">

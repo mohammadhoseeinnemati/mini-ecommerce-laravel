@@ -47,6 +47,12 @@
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <p class="mb-2 text-gray-800 dark:text-gray-100 font-DanaMedium text-lg">ورود به حساب کاربری </p>
             <form class="space-y-5" action="" method="POST">
+                @csrf
+                @error('general')
+                <div>
+                    <span style="color: rgb(244 63 94)">{{$message}}</span>
+                </div>
+                @enderror
                 <div>
                     <label for="phone" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">
                         لطفا شماره موبایل خود را وارد کنید
@@ -71,7 +77,7 @@
                 </div>
 
                 <div>
-                    <label for="password" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">لطفا شماره
+                    <label for="password" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">
                         رمز عبور خود را وارد کنید
                     </label>
                     <div class="mt-3">
@@ -92,7 +98,7 @@
                     @enderror
                 </div>
                 <div>
-                    <button type="submit" href="confirm-code.html" tabindex="3" class="submit-btn">ورود</button>
+                    <button type="submit"  tabindex="3" class="submit-btn">ورود</button>
                 </div>
             </form>
             <p class="mt-8 text-center text-sm/6 text-gray-500 dark:text-gray-300">

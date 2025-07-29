@@ -10,9 +10,11 @@
             | {{$title}}
         @endisset
     </title>
+
     <link rel="stylesheet" href="{{asset('assets/styles/app.css')}}">
     <!-- link -->
     <link rel="stylesheet" href="{{asset('assets/swiper/swiper.css')}}">
+
     <!-- ==========================  DARK MODE SCRIPT ============================= -->
     <script type="text/javascript">
         if (
@@ -25,6 +27,9 @@
             document.documentElement.classList.remove("dark");
         }
     </script>
+
+
+
 </head>
 
 <body>
@@ -49,7 +54,7 @@
 <script src="{{asset('assets/swiper/swiper.js')}}"></script>
 <script src="{{asset('assets/scripts/app.js')}}"></script>
 <script type="module" src="{{asset('assets/scripts/slider.js')}}"></script>
-<script src="{{asset('assets/scripts/timer.js')}}"></script>
+{{--<script src="{{asset('assets/scripts/timer.js')}}"></script>--}}
 </body>
 
 </html>

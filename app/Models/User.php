@@ -19,7 +19,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $last_name
  * @property string $email
  * @property string $phone
- * @property int $avatar_file_id
+ * @property int | null $avatar_file_id
  * @property string $password
  * @property Carbon $created_at
  * @property Carbon $updated_at
