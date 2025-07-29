@@ -10,4 +10,11 @@ if(!function_exists('backWithError')){
                 'general' => $message
             ]);
     }
+}if(!function_exists('getAuthenticatedUserFullName')){
+    function getAuthenticatedUserFullName(string $guard = null): string
+    {
+        $user = auth($guard)->user();
+
+        return "$user->first_name $user->last_name";
+    }
 }
