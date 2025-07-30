@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{{asset('assets/styles/app.css')}}">
     <!-- link -->
     <link rel="stylesheet" href="{{asset('assets/swiper/swiper.css')}}">
-
     <!-- ==========================  DARK MODE SCRIPT ============================= -->
     <script type="text/javascript">
         if (

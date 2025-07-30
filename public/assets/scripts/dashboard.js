@@ -1,7 +1,7 @@
-const userMenu = document.querySelector('.user-menu') 
-const openUserMenu = document.querySelector('.open-user-menu') 
-const closeUserMenu = document.querySelector('.close-user-menu') 
-const overlayDashboard = document.querySelector('.search-overlay') 
+const userMenu = document.querySelector('.user-menu')
+const openUserMenu = document.querySelector('.open-user-menu')
+const closeUserMenu = document.querySelector('.close-user-menu')
+const overlayDashboard = document.querySelector('.search-overlay')
 
 
 openUserMenu.addEventListener('click' , ()=> {
@@ -18,3 +18,4 @@ closeUserMenu.addEventListener('click' , ()=> {
    userMenu.classList.remove('active')
    overlayDashboard.classList.remove('active')
 })
+

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Route;
 
 if(!function_exists('backWithError')){
     function backWithError(string $message): RedirectResponse
@@ -10,11 +11,26 @@ if(!function_exists('backWithError')){
                 'general' => $message
             ]);
     }
-}if(!function_exists('getAuthenticatedUserFullName')){
+}
+
+if(!function_exists('getAuthenticatedUserFullName')){
     function getAuthenticatedUserFullName(string $guard = null): string
     {
         $user = auth($guard)->user();
 
         return "$user->first_name $user->last_name";
+    }
+}
+
+if(!function_exists('activeSidebarItem')){
+    function activeSidebarItem(string $targetRouteName, string $class = 'active'):string
+    {
+        $currentRouteName = Route::currentRouteName();
+
+        if($currentRouteName != $targetRouteName){
+            return '';
+        }
+
+        return $class;
     }
 }

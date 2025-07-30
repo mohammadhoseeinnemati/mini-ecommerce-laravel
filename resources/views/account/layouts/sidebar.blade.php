@@ -10,21 +10,16 @@
             <p class="text-gray-400">{{auth()->user()->phone}}</p>
          </span>
         </div>
-        <span>
-         <svg class="w-6 h-6 cursor-pointer text-blue-500">
-            <use href="#edit"></use>
-         </svg>
-      </span>
     </div>
     <ul
         class="w-full relative space-y-2 child:duration-300 child:transition-all child:py-3  child:px-2 child:flex child:gap-x-2 text-lg child:cursor-pointer child:rounded-lg">
-        <li class="bg-blue-500/10 text-blue-500">
+        <li class="{{activeSidebarItem('account.orders.index','bg-blue-500/10 text-blue-500')}} hover:text-blue-500">
             <svg class="w-6 h-6 ">
                 <use href="#squares"></use>
             </svg>
             <a href="{{route('account.orders.index')}}">سفارش ها</a>
         </li>
-        <li class="hover:text-blue-500">
+        <li class="{{activeSidebarItem('account.profile.index','bg-blue-500/10 text-blue-500')}} hover:text-blue-500">
             <svg class="w-6 h-6 ">
                 <use href="#cog"></use>
             </svg>

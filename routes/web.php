@@ -11,5 +11,5 @@ Route::prefix('account')->as('account.')->middleware('auth')->group(function (){
     Route::get('orders',[OrderController::class,'index'])->name('orders.index');
 
     Route::get('profile',[ProfileController::class,'index'])->name('profile.index');
-    Route::post('profile',[ProfileController::class,'post'])->name('profile.post');
+    Route::put('profile',[ProfileController::class,'post'])->name('profile.post');
 });
