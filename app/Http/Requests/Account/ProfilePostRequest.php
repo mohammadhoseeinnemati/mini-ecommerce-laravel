@@ -11,7 +11,7 @@ class ProfilePostRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,34 @@ class ProfilePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'first_name'=>[
+                'required',
+                'persian_alpha',
+                'min:2',
+                'max:60'
+            ],
+            'last_name'=>[
+                'required',
+                'persian_alpha',
+                'min:2',
+                'max:60'
+            ],
+            'email'=>[
+                'required',
+                'email',
+                'unique:App\Models\User,email,' . auth()->id()
+            ],
+            'phone'=>[
+                'required',
+                'ir_mobile:zero',
+                'unique:App\Models\User,phone,' . auth()->id()
+            ],
+            'password'=>[
+                'nullable',
+                'min:6',
+                'max:100',
+                'confirmed'
+            ]
         ];
     }
 }

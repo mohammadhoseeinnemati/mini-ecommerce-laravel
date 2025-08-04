@@ -100,7 +100,7 @@
                             نام محصول
                         </th>
                         <th scope="col" class="px-6 py-3.5">
-                            تاریخ
+                            تاریخ ثبت
                         </th>
                         <th scope="col" class="px-6 py-3.5">
                             قیمت
@@ -111,54 +111,54 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="bg-white border-b cursor-pointer dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
-                        <th scope="row"
-                            class="px-6 py-5 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-x-2">
-                            <img class="w-10 object-cover" src="./images/products/11.png" alt="">
-                            گوشی موبایل اپل مدل iPhone 16
-                        </th>
-                        <td class="px-6 py-5">
-                            1402/11/11
-                        </td>
-                        <td class="px-6 py-5">
-                            62,000,000 تومان
-                        </td>
-                        <td class="px-6 py-5 text-red-500 font-DanaDemiBold">
-                            لغو شده
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b cursor-pointer dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
-                        <th scope="row"
-                            class="px-6 py-5 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-x-2">
-                            <img class="w-10 object-cover" src="./images/products/8.webp" alt="">
-                            گوشی موبایل اپل مدل iPhone 16
-                        </th>
-                        <td class="px-6 py-5">
-                            1402/11/11
-                        </td>
-                        <td class="px-6 py-5">
-                            62,000,000 تومان
-                        </td>
-                        <td class="px-6 py-5 text-yellow-500 font-DanaDemiBold">
-                            درانتظار پرداخت
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b cursor-pointer dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
-                        <th scope="row"
-                            class="px-6 py-5 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-x-2">
-                            <img class="w-10 object-cover" src="./images/products/3.png" alt="">
-                            گوشی موبایل اپل مدل iPhone 16
-                        </th>
-                        <td class="px-6 py-5">
-                            1402/11/11
-                        </td>
-                        <td class="px-6 py-5">
-                            62,000,000 تومان
-                        </td>
-                        <td class="px-6 py-5 text-green-500 font-DanaDemiBold">
-                            پرداخت شده
-                        </td>
-                    </tr>
+                        @forelse($orders as $order)
+                            <tr class="bg-white border-b cursor-pointer dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                                <th scope="row"
+                                    class="px-6 py-5 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-x-2">
+{{--                                    <img class="w-10 object-cover" src="./images/products/11.png" alt="">--}}
+                                    @foreach($order->orderItems as $orderItem)
+                                        <div>({{ $orderItem->product->name }})</div>
+                                    @endforeach
+                                </th>
+                                <td class="px-6 py-5">
+                                    <div style="direction: ltr">
+                                        {{jDate($order->created_at->format('Y/m/d,H:i'))}}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    {{number_format($order->total_price)}}
+                                    تومان
+                                </td>
+                                <td class="px-6 py-5  font-DanaDemiBold">
+                                    @switch($order->status)
+                                        @case(\App\Enums\OrderStatus::pending)
+                                            <span class="text-yellow-500">درحال انتظار ثبت</span>
+                                        @break
+                                        @case(\App\Enums\OrderStatus::processing)
+                                            <span class="text-orange-400">درحال پردازش</span>
+                                        @break
+                                        @case(\App\Enums\OrderStatus::sent)
+                                            <span class="text-blue-500">ارسال شده</span>
+                                        @break
+                                        @case(\App\Enums\OrderStatus::delivered)
+                                            <span class="text-green-500">تحویل داده</span>
+                                        @break
+                                        @case(\App\Enums\OrderStatus::cancelled)
+                                            <span class="text-red-500">لغو شده</span>
+                                        @break
+                                    @endswitch
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td>
+                                    <div>
+                                        سفارشی یافت نشد
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>

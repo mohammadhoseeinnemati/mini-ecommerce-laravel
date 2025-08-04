@@ -90,6 +90,18 @@
                 @csrf
                 @method('PUT')
                 <!-- ITEM -->
+                @error('general')
+                    <div>
+                        <span style="color: rgb(244 63 94)">{{$message}}</span>
+                    </div>
+                @enderror
+
+                @if(session()->has('success'))
+                    <div>
+                        <span style="color: green">{{session('success')}}</span>
+                    </div>
+                @endif
+
                 <div class="mt-5 grid grid-cols-12 gap-5 child:col-span-12 child:lg:col-span-6">
 
                     <div>
@@ -105,6 +117,11 @@
                                 value="{{old('first_name',$user->first_name)}}"
                             >
                         </div>
+                        @error('first_name')
+                        <p class="text-error" style="display: block; opacity: 1">
+                            {{$message}}
+                        </p>
+                        @enderror
                     </div>
 
                     <div>
@@ -120,6 +137,11 @@
                                 value="{{old('last_name',$user->last_name)}}"
                             >
                         </div>
+                        @error('last_name')
+                        <p class="text-error" style="display: block; opacity: 1">
+                            {{$message}}
+                        </p>
+                        @enderror
                     </div>
 
                     <div>
@@ -135,6 +157,11 @@
                                 value="{{old('email',$user->email)}}"
                             >
                         </div>
+                        @error('email')
+                        <p class="text-error" style="display: block; opacity: 1">
+                            {{$message}}
+                        </p>
+                        @enderror
                     </div>
 
                     <div>
@@ -150,6 +177,11 @@
                                 value="{{old('phone',$user->phone)}}"
                             >
                         </div>
+                        @error('phone')
+                        <p class="text-error" style="display: block; opacity: 1">
+                            {{$message}}
+                        </p>
+                        @enderror
                     </div>
 
                     <div>
@@ -165,11 +197,16 @@
                                 placeholder="در صورت نیاز به تغییر رمز عبور ان را وارد کنید"
                             >
                         </div>
+                        @error('password')
+                        <p class="text-error" style="display: block; opacity: 1">
+                            {{$message}}
+                        </p>
+                        @enderror
                     </div>
 
                     <div>
                         <label for="password" class="block text-sm font-DanaMedium text-gray-500 dark:text-gray-300">
-                            رمز عبور
+                            تکرار رمز عبور
                         </label>
                         <div class="mt-3 relative">
                             <input

@@ -28,7 +28,7 @@
                 @if(auth()->check())
                     <!-- Account Btn -->
                     <button class="group relative flex-center py-2 px-4 app-border rounded-full app-hover delay-75">
-                        <a href="dashboard.html"  class="flex items-center gap-x-1">
+                        <a href="{{route('account.profile.index')}}"  class="flex items-center gap-x-1">
                             <svg class="size-5">
                                 <use href="#user" />
                             </svg>
@@ -322,7 +322,7 @@
             </div>
             <div class="w-full space-y-4">
                 <!-- Result -->
-                <div ">
+                <div>
                 <span class=" flex items-center text-sm gap-x-1 text-gray-600 dark:text-gray-200">
                         <p>نتیجه جستجو : <span class="font-DanaMedium text-blue-400">iphone</span></p>
                         </span>
