@@ -34,3 +34,10 @@ if(!function_exists('activeSidebarItem')){
         return $class;
     }
 }
+
+if(!function_exists('getProductDiscount')){
+    function getProductDiscount(int $price , int $discount):int
+    {
+       return ($discount * 100) / $price;
+    }
+}

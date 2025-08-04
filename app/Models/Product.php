@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Product
- * 
+ *
  * @property int $id
  * @property string $name
  * @property int|null $name_en
@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $creates_at
  * @property Carbon $updates_at
  * @property string|null $deleted_at
- * 
+ *
  * @property Category $category
  * @property Collection|OrderItem[] $orderItems
  *
@@ -39,7 +39,7 @@ class Product extends Model
 	public static $snakeAttributes = false;
 
 	protected $casts = [
-		'name_en' => 'int',
+		'name_en' => 'string',
 		'price' => 'int',
 		'qty' => 'int',
 		'discount' => 'int',

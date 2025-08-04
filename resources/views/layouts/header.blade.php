@@ -16,7 +16,7 @@
                 </div>
             </div>
             <!-- Logo -->
-            <a href="index.html" class="flex flex-col text-center ml-20">
+            <a href="{{route('index')}}" class="flex flex-col text-center ml-20">
                     <span class="font-MorabbaMedium text-4xl flex items-center">
                         فروشگاه<span class="text-blue-500">{{config('project.project_name')}}</span>
                     </span>
@@ -188,20 +188,20 @@
             <!-- MENU -->
             <ul class="flex items-center gap-x-8">
                 <li class="menu-item">
-                    <a href="index.html" class="menu-item_link">
+                    <a href="{{route('index')}}" class="menu-item_link">
                         صفحه اصلی
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{route('products.index')}}" class="menu-item_link">
+                        فروشگاه
                     </a>
                 </li>
 
                 <li class="menu-item">
                     <a href="index.html" class="menu-item_link">
                        دسته بندی ها
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a href="shop.html" class="menu-item_link">
-                        فروشگاه
                     </a>
                 </li>
 
