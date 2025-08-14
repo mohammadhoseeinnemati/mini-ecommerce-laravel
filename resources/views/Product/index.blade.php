@@ -389,16 +389,23 @@
                             <div class="product-card_header">
                                 <div class="flex items-center gap-x-2">
                                     @if($product->qty > 0)
-                                        <div class="tooltip">
-                                            <button class="rounded-full p-1.5 app-border app-hover">
-                                                <svg class="size-4">
-                                                    <use href="#shopping-cart"></use>
-                                                </svg>
-                                            </button>
-                                            <div class="tooltiptext">
-                                                سبد خرید
+                                        <form method="post" action="{{route('cart.add')}}">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                            <input type="hidden" name="qty" value="1">
+                                            <div class="tooltip">
+                                                <button
+                                                    type="submit"
+                                                    class="rounded-full p-1.5 app-border app-hover">
+                                                    <svg class="size-4">
+                                                        <use href="#shopping-cart"></use>
+                                                    </svg>
+                                                </button>
+                                                <div class="tooltiptext">
+                                                    سبد خرید
+                                                </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     @endif
                                 </div>
                                 <!-- badge offer -->

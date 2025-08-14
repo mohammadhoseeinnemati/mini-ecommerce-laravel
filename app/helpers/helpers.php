@@ -41,3 +41,12 @@ if(!function_exists('getProductDiscount')){
        return ($discount * 100) / $price;
     }
 }
+
+if(!function_exists('getCartProductsCount')){
+    function getCartProductsCount():int
+    {
+       $userCart = session('user_cart',[]);
+
+       return count($userCart);
+    }
+}

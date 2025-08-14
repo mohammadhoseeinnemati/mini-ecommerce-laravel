@@ -9,7 +9,7 @@
                     <a href="{{route('index')}}"
                        class="inline-flex items-center text-sm gap-x-1  text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
                         <svg class="size-4 mb-0.5">
-                            <use href="#home" />
+                            <use href="#home"/>
                         </svg>
                         صفحه اصلی
                     </a>
@@ -18,7 +18,7 @@
                     <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="m1 9 4-4-4-4" />
+                              d="m1 9 4-4-4-4"/>
                     </svg>
                     <a href="{{route('products.index')}}"
                        class="inline-flex items-center text-sm gap-x-1  text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
@@ -30,7 +30,7 @@
                         <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
                              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="m1 9 4-4-4-4" />
+                                  d="m1 9 4-4-4-4"/>
                         </svg>
                         <span class="ms-1 text-sm  text-gray-500 md:ms-2 dark:text-gray-400">جزییات محصول</span>
                     </div>
@@ -46,9 +46,11 @@
                     <!-- IMAGE SLIDER -->
                     <div class="w-2/4 hidden md:flex flex-col justify-center items-center gap-y-4">
                         <span class="open-sliderModal">
-                            <img src="{{asset('assets/images/products/11.png')}}" class="cursor-pointer object-cover" alt="">
+                            <img src="{{asset('assets/images/products/11.png')}}" class="cursor-pointer object-cover"
+                                 alt="">
                         </span>
-                        <div class="grid grid-cols-12 child:col-span-3 child:app-border gap-x-4 child:size-16 child:rounded-lg child:cursor-pointer">
+                        <div
+                            class="grid grid-cols-12 child:col-span-3 child:app-border gap-x-4 child:size-16 child:rounded-lg child:cursor-pointer">
                             <div class="p-1 open-sliderModal">
                                 <img src="{{asset('assets/images/products/11.png')}}" class="object-cover  rounded-lg">
                             </div>
@@ -62,7 +64,8 @@
                                 <svg class="absolute size-8 text-gray-100 top-4 left-4 z-10">
                                     <use href="#ellipsis"></use>
                                 </svg>
-                                <img src="{{asset('assets/images/products/14.webp')}}" class="object-cover rounded-lg blur-sm">
+                                <img src="{{asset('assets/images/products/14.webp')}}"
+                                     class="object-cover rounded-lg blur-sm">
                             </div>
                         </div>
                     </div>
@@ -79,28 +82,29 @@
                         <div class="swiper ProductDetailsSlider mt-14 px-10 w-96 relative">
                             <div class="swiper-wrapper w-[50%] child:w-full child:rounded-lg child:overflow-hidden">
                                 <div class="swiper-slide">
-                                    <img src="{{asset('assets/images/products/11.png')}}"  alt="">
+                                    <img src="{{asset('assets/images/products/11.png')}}" alt="">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{asset('assets/images/products/13.webp')}}"  alt="">
+                                    <img src="{{asset('assets/images/products/13.webp')}}" alt="">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{asset('assets/images/products/12.webp')}}"  alt="">
+                                    <img src="{{asset('assets/images/products/12.webp')}}" alt="">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{asset('assets/images/products/14.webp')}}"  alt="">
+                                    <img src="{{asset('assets/images/products/14.webp')}}" alt="">
                                 </div>
                             </div>
                         </div>
-                        <button class="slider-navigate_btn absolute right-40 top-[17rem] border dark:border-gray-700 border-gray-200 button-prev-ProductDetailsSlider z-20">
+                        <button
+                            class="slider-navigate_btn absolute right-40 top-[17rem] border dark:border-gray-700 border-gray-200 button-prev-ProductDetailsSlider z-20">
                             <svg class="size-6 -rotate-90">
-                                <use href="#chevron" />
+                                <use href="#chevron"/>
                             </svg>
                         </button>
                         <button
                             class="slider-navigate_btn absolute left-40 top-[17rem] border dark:border-gray-700 border-gray-200 button-next-ProductDetailsSlider z-10">
                             <svg class="size-6 rotate-90">
-                                <use href="#chevron" />
+                                <use href="#chevron"/>
                             </svg>
                         </button>
                     </div>
@@ -143,28 +147,34 @@
                         <!-- Features Box  -->
                         <div class="w-full flex flex-col gap-y-4 mt-6">
                             <h1 class="font-DanaDemiBold text-lg dark:text-gray-200">ویژگی‌ها</h1>
-                            <div class="grid grid-cols-12 gap-2 child:p-2 child:h-16 child:bg-gray-100 dark:child:bg-gray-900 child:rounded-lg child:flex child:flex-col child:gap-y-1.5">
+                            <div
+                                class="grid grid-cols-12 gap-2 child:p-2 child:h-16 child:bg-gray-100 dark:child:bg-gray-900 child:rounded-lg child:flex child:flex-col child:gap-y-1.5">
                                 <div class="col-span-12 md:col-span-6 xl:col-span-4">
                                     <p class="text-sm text-gray-500">فناوری صفحه‌ نمایش </p>
-                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">LTPO Super Retina XDR</p>
+                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">
+                                        LTPO Super Retina XDR</p>
                                 </div>
                                 <div class="col-span-12 md:col-span-6 xl:col-span-4">
                                     <p class="text-sm text-gray-500">نسخه سیستم عامل</p>
-                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">iOS 18</p>
+                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">
+                                        iOS 18</p>
                                 </div>
                                 <div class="col-span-12 md:col-span-6 xl:col-span-4">
                                     <p class="text-sm text-gray-500">رزولوشن دوربین اصلی </p>
-                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">48 مگاپیکسل</p>
+                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">
+                                        48 مگاپیکسل</p>
                                 </div>
                                 <div class="col-span-12 md:col-span-6 xl:col-span-4">
                                     <p class="text-sm text-gray-500">اندازه</p>
-                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">6.1</p>
+                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">
+                                        6.1</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-10 lg:mr-2 grid grid-cols-12 child:col-span-6 xl:child:col-span-3 gap-x-1 gap-y-2 lg:gap-4 child:border child:text-gray-400 child:dark:border-white/20 child:border-gray-200 child:rounded-lg child:h-12  child:p-2 child:flex child:items-center child:gap-x-1 lg:child:gap-x-2 child:text-sm lg:text-base">
+                <div
+                    class="mt-10 lg:mr-2 grid grid-cols-12 child:col-span-6 xl:child:col-span-3 gap-x-1 gap-y-2 lg:gap-4 child:border child:text-gray-400 child:dark:border-white/20 child:border-gray-200 child:rounded-lg child:h-12  child:p-2 child:flex child:items-center child:gap-x-1 lg:child:gap-x-2 child:text-sm lg:text-base">
                     <span>
                         <svg class="w-4 h-4 lg:w-6 lg:h-6">
                             <use href="#arrow-path-rounded-square"></use>
@@ -198,47 +208,76 @@
                 <!-- PRICE -->
                 <div class="flex items-center gap-x-1 justify-center">
                     <div class="product-card_price">
-                        @if($product->discount > 0)
-                            <del>{{number_format($product->price)}}<h6>تومان</h6></del>
-                            <p>{{number_format($product->discount - $product->price)}}</p>
+                        @if($product->qty > 0)
+                            @if($product->discount > 0)
+                                <del>{{number_format($product->price)}}<h6>تومان</h6></del>
+                                <p>{{number_format($product->discount - $product->price)}}</p>
+                            @else
+                                <p>{{number_format($product->price)}}</p>
+                            @endif
+                            <span>تومان</span>
                         @else
-                            <p>{{number_format($product->price)}}</p>
+                            <span style="background-color: red">ناموجود</span>
                         @endif
-                        <span>تومان</span>
                     </div>
                 </div>
-                <button
-                    class="w-full flex items-center justify-between gap-x-1 rounded-lg border border-gray-200 dark:border-white/20 py-2 px-3">
-                    <svg class="w-6 h-6 increment text-green-600">
-                        <use href="#plus"></use>
-                    </svg>
-                    <input type="number" name="customInput" id="customInput" min="1" max="20" value="1"
-                           class="custom-input mr-4 text-lg bg-transparent">
-                    <svg class="w-6 h-6 decrement text-red-500">
-                        <use href="#minus"></use>
-                    </svg>
-                </button>
+                <form action="{{route('cart.add')}}" method="post">
+                    @error('general')
+                        <span class="text-red-500">{{$message}}</span>
+                    @enderror
+                    @error('qty')
+                        <span class="text-red-500">{{$message}}</span>
+                    @enderror
+                    @error('product_id')
+                        <span class="text-red-500">{{$message}}</span>
+                    @enderror
+                    @csrf
+                    @if($product->qty > 0)
+                        <button
+                            type="button"
+                            class="w-full flex items-center justify-between gap-x-1 rounded-lg border border-gray-200 dark:border-white/20 py-2 px-3">
 
-                <button
-                    class="w-full flex items-center gap-x-1 justify-between dark:bg-gray-900 dark:text-gray-400  bg-gray-100 transition-all rounded-lg py-2 px-2 xl:px-3 font-DanaMedium text-sm xl:text-base">
-                    <p>مجموع خرید :</p>
-                    <p>۹۹,۸۹۹,۰۰۰ تومان</p>
-                </button>
+                            <svg class="w-6 h-6 increment text-green-600">
+                                <use href="#plus"></use>
+                            </svg>
+                            <input
+                                type="number"
+                                name="qty"
+                                id="customInput"
+                                min="1"
+                                max="{{$product->qty}}"
+                                value="1"
+                                class="custom-input mr-4 text-lg bg-transparent">
+                            <svg class="w-6 h-6 decrement text-red-500">
+                                <use href="#minus"></use>
+                            </svg>
+                        </button>
+                    @endif
 
-                <button
-                    class="w-full flex items-center gap-x-1 justify-center bg-blue-500 text-white hover:bg-blue-600 transition-all rounded-lg shadow py-2">
-                    افزودن به سبد
-                    <svg class="w-5 h-5">
-                        <use href="#shopping-bag"></use>
-                    </svg>
-                </button>
+                    {{--                <button--}}
+                    {{--                    class="w-full flex items-center gap-x-1 justify-between dark:bg-gray-900 dark:text-gray-400  bg-gray-100 transition-all rounded-lg py-2 px-2 xl:px-3 font-DanaMedium text-sm xl:text-base">--}}
+                    {{--                    <p>مجموع خرید :</p>--}}
+                    {{--                    <p>۹۹,۸۹۹,۰۰۰ تومان</p>--}}
+                    {{--                </button>--}}
 
+                    <input type="hidden" name="product_id" value="{{$product->id}}">
+
+                    <button
+                        type="submit"
+                        class="w-full flex items-center gap-x-1 justify-center mt-6  transition-all rounded-lg shadow py-2 @if($product->qty > 0) bg-blue-500 text-white hover:bg-blue-600 @else bg-gray-300 text-gray-800 hover:bg-gray-300 @endif">
+                        افزودن به سبد
+                        <svg class="w-5 h-5">
+                            <use href="#shopping-bag"></use>
+                        </svg>
+                    </button>
+                </form>
             </div>
         </section>
 
         <section class="relative mt-10 flex flex-col items-start gap-4 rounded-lg bg-white dark:bg-gray-800 shadow p-4">
-            <div class="w-full py-3 flex items-center gap-x-6 child:font-DanaMedium tab-buttons z-10 border-b  border-gray-600/20 dark:border-b-gray-200/20">
-                <button class="tab-btn text-blue-500" data-target="tab1" >معرفی محصول</button>
+            <div
+                class="w-full py-3 flex items-center gap-x-6 child:font-DanaMedium tab-buttons z-10 border-b  border-gray-600/20 dark:border-b-gray-200/20">
+                <button class="tab-btn text-blue-500" data-target="tab1">معرفی محصول</button>
 
             </div>
             <div class="tab-content tab1 block">
@@ -248,7 +287,7 @@
                     <a href="#" class="flex gap-x-1 items-center text-blue-400">
                         مشاهده بیشتر
                         <svg class="size-4">
-                            <use href="#chevron-left" />
+                            <use href="#chevron-left"/>
                         </svg>
                     </a>
                 </p>
@@ -277,12 +316,12 @@
                     <div class="flex items-center gap-x-2">
                         <button class="slider-navigate_btn BestSelling-prev-slide">
                             <svg class="size-6 -rotate-90">
-                                <use href="#chevron" />
+                                <use href="#chevron"/>
                             </svg>
                         </button>
                         <button class="slider-navigate_btn BestSelling-next-slide">
                             <svg class="size-6 rotate-90">
-                                <use href="#chevron" />
+                                <use href="#chevron"/>
                             </svg>
                         </button>
                     </div>
@@ -292,7 +331,7 @@
                         <span
                             class="w-7 h-7 rounded-full bg-blue-500 flex-center md:group-hover:-translate-x-1 transition-transform duration-300">
                             <svg class="size-5">
-                                <use href="#arrow" />
+                                <use href="#arrow"/>
                             </svg>
                         </span>
                     </a>

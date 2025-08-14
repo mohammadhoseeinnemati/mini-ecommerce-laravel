@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\OrderStatus;
 use App\Http\Requests\ProductIndexRequest;
 use App\Models\Category;
 use App\Models\Product;
@@ -19,8 +20,41 @@ class ProductController extends Controller
             ->when($request->filled('exists'), function (Builder $Query) use ($request){
                 $Query->where('qty', '>', 0);
             })
-            ->orderByDesc('creates_at')
-            ->paginate();
+            ->when($request->filled('sort'),function (Builder $Query) use ($request){
+                switch ($request->input('sort')){
+                    case 'most_wanted';
+                        $Query->withSum([
+                            'orderItems'=> function (Builder $Query) {
+                                $Query->whereHas('order',function (Builder $Query){
+                                    $Query->whereIn('status',[
+                                       OrderStatus::delivered,
+                                       OrderStatus::sent
+                                    ]);
+                                });
+                            }
+
+                        ],'qty')
+                            ->orderByDesc('order_items_sum_qty');
+                    break;
+
+                    case 'lowest';
+                        $Query->orderBy('price');
+                    break;
+
+                    case 'highest';
+                        $Query->orderByDesc('price');
+                    break;
+
+                    default:
+                        $Query->orderByDesc('creates_at');
+                    break;
+                }
+            })
+            ->unless($request->filled('sort'),function (Builder $Query){
+                $Query->orderByDesc('creates_at');
+            })
+            ->paginate()
+            ->withQueryString();
 
         $categories = Category::query()
             ->whereHas('products')
