@@ -18,6 +18,7 @@ Route::prefix('account')->as('account.')->middleware('auth')->group(function (){
 Route::prefix('products')->as('products.')->group(function (){
 
     Route::get('/',[ProductController::class,'index'])->name('index');
+    Route::get('remove-filter',[ProductController::class,'removeFilter'])->name('remove-filter');
     Route::get('/{product_id}',[ProductController::class,'show'])->name('show');
 
 });

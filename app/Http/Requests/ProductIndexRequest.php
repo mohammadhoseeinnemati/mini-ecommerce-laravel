@@ -14,6 +14,24 @@ class ProductIndexRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        $formattedCategories = [];
+
+        foreach ($this->query('category_id') ??[] as $categoryId => $value){
+            $formattedCategories[] = $categoryId;
+        }
+
+        if(count($formattedCategories) > 0){
+            $this->merge([
+                'category_id' => $formattedCategories
+            ]);
+        }
+
+
+
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -22,7 +40,25 @@ class ProductIndexRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'category_id'=>[
+                'nullable',
+                'array',
+            ],
+            'category_id.*'=>[
+                'nullable',
+                'integer',
+                'exists:App\Models\Category,id'
+            ],
+            'exists'=>[
+                'nullable',
+                'string',
+                'in:on'
+            ],
+            'sort'=>[
+                'nullable',
+                'string',
+                'in:newest,most_wanted,lowest,highest'
+            ]
         ];
     }
 }

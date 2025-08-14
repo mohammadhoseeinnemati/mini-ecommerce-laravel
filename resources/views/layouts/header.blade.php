@@ -43,7 +43,7 @@
                                 </svg>
                                 سفارشات من
                             </a>
-                            <a href="dashboard-account.html"
+                            <a href="{{route('account.profile.index')}}"
                                class="flex items-center gap-x-2  hover:bg-blue-500 hover:text-gray-100">
                                 <svg class="h-5 w-5">
                                     <use href="#cog"></use>

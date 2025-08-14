@@ -10,7 +10,7 @@
                     <a href="{{route('index')}}"
                        class="inline-flex items-center text-sm gap-x-1  text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
                         <svg class="size-4 mb-0.5">
-                            <use href="#home" />
+                            <use href="#home"/>
                         </svg>
                         صفحه اصلی
                     </a>
@@ -20,7 +20,7 @@
                         <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
                              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="m1 9 4-4-4-4" />
+                                  d="m1 9 4-4-4-4"/>
                         </svg>
                         <span class="ms-1 text-sm  text-gray-500 md:ms-2 dark:text-gray-400">فروشگاه</span>
                     </div>
@@ -38,7 +38,8 @@
                         <p class="font-DanaMedium text-gray-700 dark:text-gray-200 text-lg">فیلترها
                         </p>
                     </span>
-                    <p class="text-blue-500 dark:text-blue-400 text-sm cursor-pointer"> حذف فیلتر‌ها</p>
+                    <a href="{{route('products.remove-filter')}}"
+                       class="text-blue-500 dark:text-blue-400 text-sm cursor-pointer"> حذف فیلتر‌ها</a>
                 </div>
                 <!-- FILTERS -->
                 <form action="" style="width: 100%;padding: 10px">
@@ -62,7 +63,7 @@
                                         <label class="relative flex cursor-pointer items-center rounded-full p-3"
                                                for="ripple-on" data-ripple-dark="true">
                                             <input id="ripple-on" type="checkbox"
-                                                   class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  " />
+                                                   class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  "/>
                                             <span
                                                 class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5"
@@ -74,7 +75,8 @@
                                             </svg>
                                         </span>
                                         </label>
-                                        <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1" for="ripple-on">
+                                        <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1"
+                                               for="ripple-on">
                                             همه کالاها
                                         </label>
                                     </div>
@@ -87,8 +89,9 @@
                                                 <input
                                                     id="category-{{$category->id}}"
                                                     type="checkbox"
+                                                    @checked(in_array($category->id, $filteredCategory ??[]))
                                                     name="category_id[{{$category->id}}]"
-                                                    class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  " />
+                                                    class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  "/>
                                                 <span
                                                     class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
                                                 <svg
@@ -106,7 +109,8 @@
                                                 </svg>
                                             </span>
                                             </label>
-                                            <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1" for="category-{{$category->id}}">
+                                            <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1"
+                                                   for="category-{{$category->id}}">
                                                 {{$category->name}}
                                             </label>
                                         </div>
@@ -117,7 +121,13 @@
                         <!-- TOGGLE SWITCH -->
                         <div class="w-full justify-between flex items-center gap-x-3 px-2 xl:px-4 py-4" dir="ltr">
                             <label for="hs-valid-toggle-switch" class="relative inline-block w-11 h-6 cursor-pointer">
-                                <input name="exists" type="checkbox" id="hs-valid-toggle-switch" class="peer sr-only">
+                                <input
+                                    name="exists"
+                                    type="checkbox"
+                                    id="hs-valid-toggle-switch"
+                                    class="peer sr-only"
+                                    @checked(request()->filled('exists'))
+                                >
                                 <span
                                     class="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-blue-500 dark:bg-neutral-700 dark:peer-checked:bg-blue-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
                                 <span
@@ -127,9 +137,17 @@
                                 فقط کالا های موجود
                             </label>
                         </div>
+
+                        @foreach(request()->only(['page','sort']) as $name => $value)
+                            @if(!request()->filled($name))
+                                @continue
+                            @endif
+                            <input type="hidden" name="{{$name}}" value="{{$value}}">
+                        @endforeach
+
                     </div>
                     <div style="width: 100%; padding: 10px">
-                        <button type="submit"  tabindex="3" class="submit-btn">فیلتر</button>
+                        <button type="submit" tabindex="3" class="submit-btn">فیلتر</button>
                     </div>
                 </form>
             </div>
@@ -138,7 +156,8 @@
                 <!-- MOBILE FILTERS -->
                 <div class="flex lg:hidden items-center gap-x-2">
                     <!-- SORT BTN -->
-                    <button class="sort-modal-open text-sm mb-4 py-1.5 px-3 app-border rounded-full flex items-center gap-x-1">
+                    <button
+                        class="sort-modal-open text-sm mb-4 py-1.5 px-3 app-border rounded-full flex items-center gap-x-1">
                         <svg class="size-4 text-gray-400">
                             <use href="#sort-list"></use>
                         </svg>
@@ -158,14 +177,17 @@
                             <li>جدیدترین</li>
                             <li>گران‌ترین</li>
                             <li>
-                                منتخب</li>
+                                منتخب
+                            </li>
                             <li>پیشنهاد خریداران</li>
                             <li>
-                                سریع‌ترین ارسال</li>
+                                سریع‌ترین ارسال
+                            </li>
                         </ul>
                     </div>
                     <!-- FILTER BTN -->
-                    <button class="filter-modal-open text-sm mb-4 py-1.5 px-3 app-border rounded-full flex items-center gap-x-1">
+                    <button
+                        class="filter-modal-open text-sm mb-4 py-1.5 px-3 app-border rounded-full flex items-center gap-x-1">
                         <svg class="size-4 text-gray-400">
                             <use href="#filter"></use>
                         </svg>
@@ -192,14 +214,15 @@
                                 </svg>
                             </span>
                                 </button>
-                                <div id="content-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div id="content-3"
+                                     class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                                     <div class="pb-3 text-gray-700 dark:text-gray-300 w-full flex flex-col gap-y-1.5">
                                         <!-- item -->
                                         <div class="inline-flex items-center mr-2.5 mt-1">
                                             <label class="relative flex cursor-pointer items-center rounded-full p-3"
                                                    for="ripple-5" data-ripple-dark="true">
                                                 <input id="ripple-5" type="checkbox"
-                                                       class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  " />
+                                                       class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  "/>
                                                 <span
                                                     class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5"
@@ -211,7 +234,8 @@
                                             </svg>
                                         </span>
                                             </label>
-                                            <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1" for="ripple-5">
+                                            <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1"
+                                                   for="ripple-5">
                                                 همه کالاها
                                             </label>
                                         </div>
@@ -220,7 +244,7 @@
                                             <label class="relative flex cursor-pointer items-center rounded-full p-3"
                                                    for="ripple-6" data-ripple-dark="true">
                                                 <input id="ripple-6" type="checkbox"
-                                                       class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  " />
+                                                       class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  "/>
                                                 <span
                                                     class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5"
@@ -232,7 +256,8 @@
                                             </svg>
                                         </span>
                                             </label>
-                                            <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1" for="ripple-6">
+                                            <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1"
+                                                   for="ripple-6">
                                                 موبایل
                                             </label>
                                         </div>
@@ -241,7 +266,7 @@
                                             <label class="relative flex cursor-pointer items-center rounded-full p-3"
                                                    for="ripple-7" data-ripple-dark="true">
                                                 <input id="ripple-7" type="checkbox"
-                                                       class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  " />
+                                                       class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  "/>
                                                 <span
                                                     class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5"
@@ -253,7 +278,8 @@
                                             </svg>
                                         </span>
                                             </label>
-                                            <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1" for="ripple-7">
+                                            <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1"
+                                                   for="ripple-7">
                                                 لپ تاپ
                                             </label>
                                         </div>
@@ -262,7 +288,7 @@
                                             <label class="relative flex cursor-pointer items-center rounded-full p-3"
                                                    for="ripple-8" data-ripple-dark="true">
                                                 <input id="ripple-8" type="checkbox"
-                                                       class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  " />
+                                                       class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500  "/>
                                                 <span
                                                     class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5"
@@ -274,7 +300,8 @@
                                             </svg>
                                         </span>
                                             </label>
-                                            <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1" for="ripple-8">
+                                            <label class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1"
+                                                   for="ripple-8">
                                                 هدفون، هدست
                                             </label>
                                         </div>
@@ -283,7 +310,8 @@
                             </div>
                             <!-- TOGGLE SWITCH -->
                             <div class="w-full justify-between flex items-center gap-x-3 px-2 xl:px-4 py-4" dir="ltr">
-                                <label for="hs-valid-toggle-switch5" class="relative inline-block w-11 h-6 cursor-pointer">
+                                <label for="hs-valid-toggle-switch5"
+                                       class="relative inline-block w-11 h-6 cursor-pointer">
                                     <input type="checkbox" id="hs-valid-toggle-switch5" class="peer sr-only">
                                     <span
                                         class="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-blue-500 dark:bg-neutral-700 dark:peer-checked:bg-blue-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
@@ -312,13 +340,38 @@
                             </svg>
                             <h2 class="font-DanaDemiBold text-gray-400">مرتب سازی :</h2>
                         </div>
-                        <ul
-                            class="flex items-center gap-x-1 lg:gap-x-4 child:transition-all child:cursor-pointer child:rounded-lg child:px-1 child:py-1 child:text-sm child:lg:text-base">
-                            <li class="text-blue-500">جدید ترین</li>
-                            <li class="text-gray-400">پرفروش ترین</li>
-                            <li class="text-gray-400">ارزان ترین</li>
-                            <li class="text-gray-400">گران ترین</li>
-                        </ul>
+
+                        <form class="max-w-sm mx-auto" style="display: flex;gap: 20px">
+                            <div style="width: 50%">
+                                <button
+                                    type="submit"
+                                    style="padding: 9px 20px" tabindex="3" class="submit-btn">
+                                    اعمال
+                                </button>
+                            </div>
+                            <select
+                                id="sort"
+                                name="sort"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            >
+                                <option value="newest" selected>جدید ترین</option>
+                                <option value="most_wanted">پرفروش ترین</option>
+                                <option value="lowest">ارزان ترین</option>
+                                <option value="highest">گران ترین</option>
+                            </select>
+
+                            @foreach(request()->only(['page','exists']) as $name => $value)
+                                @if(!request()->filled($name))
+                                    @continue
+                                @endif
+                                <input type="hidden" name="{{$name}}" value="{{$value}}">
+                            @endforeach
+
+                            @foreach(request()->input('$category_id')??[] as $name => $value)
+
+                                <input type="hidden" name="$category_id[{{$name}}]" value="{{$value}}">
+                            @endforeach
+                        </form>
                     </div>
                     <span class="text-sm text-gray-400 end">
                         {{number_format($productsCount)}}
@@ -327,61 +380,68 @@
                 </div>
 
                 <!-- PRODUCTS -->
-                <div class="grid grid-cols-1 xxs:grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-3 xs:gap-2 sm:gap-4">
+                <div
+                    class="grid grid-cols-1 xxs:grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-3 xs:gap-2 sm:gap-4">
                     <!-- PRODUCT ITEM -->
                     @forelse($products as $product)
                         <div class=" product-card group">
-                        <!-- product header -->
-                        <div class="product-card_header">
-                            <div class="flex items-center gap-x-2">
-                                <div class="tooltip">
-                                    <button class="rounded-full p-1.5 app-border app-hover">
-                                        <svg class="size-4">
-                                            <use href="#shopping-cart"></use>
-                                        </svg>
-                                    </button>
-                                    <div class="tooltiptext">
-                                        سبد خرید
-                                    </div>
+                            <!-- product header -->
+                            <div class="product-card_header">
+                                <div class="flex items-center gap-x-2">
+                                    @if($product->qty > 0)
+                                        <div class="tooltip">
+                                            <button class="rounded-full p-1.5 app-border app-hover">
+                                                <svg class="size-4">
+                                                    <use href="#shopping-cart"></use>
+                                                </svg>
+                                            </button>
+                                            <div class="tooltiptext">
+                                                سبد خرید
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
-
-                            </div>
-                            <!-- badge offer -->
-                            @if($product->discount > 0)
-                                <span class="product-card_badge">
+                                <!-- badge offer -->
+                                @if($product->discount > 0)
+                                    <span class="product-card_badge">
                                     {{getProductDiscount($product->price , $product->discount)}}
                                     %
                                     تخفیف
                                 </span>
-                            @endif
-                        </div>
-                        <!-- product img -->
-                        <a href="{{route('products.show', $product->id)}}">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="{{asset('assets/images/products/2.png')}}"
-                                 alt="">
-                            <img class="product-card_img opacity-0 group-hover:opacity-100"
-                                 src="{{asset('assets/images/products/2.png')}}" alt="">
-                        </a>
-                        <!--  product footer -->
-                        <div class="space-y-2">
-                            <a href="{{route('products.show', $product->id)}}" class="product-card_link">
-                                {{$product->name . ' | '.$product->name_en}}
+                                @endif
+                            </div>
+                            <!-- product img -->
+                            <a href="{{route('products.show', $product->id)}}">
+                                <img class="product-card_img group-hover:opacity-0 absolute"
+                                     src="{{asset('assets/images/products/2.png')}}"
+                                     alt="">
+                                <img class="product-card_img opacity-0 group-hover:opacity-100"
+                                     src="{{asset('assets/images/products/2.png')}}" alt="">
                             </a>
-                            <!-- Rate and Price -->
-                            <div class="product-card_price-wrapper">
-                                <!-- Price -->
-                                <div class="product-card_price">
-                                    @if($product->discount > 0)
-                                        <del>{{number_format($product->price)}}<h6>تومان</h6></del>
-                                        <p>{{number_format($product->discount - $product->price)}}</p>
-                                    @else
-                                        <p>{{number_format($product->price)}}</p>
-                                    @endif
-                                    <span>تومان</span>
+                            <!--  product footer -->
+                            <div class="space-y-2">
+                                <a href="{{route('products.show', $product->id)}}" class="product-card_link">
+                                    {{$product->name . ' | '.$product->name_en}}
+                                </a>
+                                <!-- Rate and Price -->
+                                <div class="product-card_price-wrapper">
+                                    <!-- Price -->
+                                    <div class="product-card_price">
+                                        @if($product->qty > 0)
+                                            @if($product->discount > 0)
+                                                <del>{{number_format($product->price)}}<h6>تومان</h6></del>
+                                                <p>{{number_format($product->discount - $product->price)}}</p>
+                                            @else
+                                                <p>{{number_format($product->price)}}</p>
+                                            @endif
+                                            <span>تومان</span>
+                                        @else
+                                            <span style="background-color: red">ناموجود</span>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @empty
                         <div>
                             محصولی یافت نشد
