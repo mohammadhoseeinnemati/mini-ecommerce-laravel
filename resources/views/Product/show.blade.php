@@ -246,7 +246,7 @@
                                 id="customInput"
                                 min="1"
                                 max="{{$product->qty}}"
-                                value="1"
+                                value="{{getCartProductCount($product->id, 1)}}"
                                 class="custom-input mr-4 text-lg bg-transparent">
                             <svg class="w-6 h-6 decrement text-red-500">
                                 <use href="#minus"></use>
@@ -265,10 +265,12 @@
                     <button
                         type="submit"
                         class="w-full flex items-center gap-x-1 justify-center mt-6  transition-all rounded-lg shadow py-2 @if($product->qty > 0) bg-blue-500 text-white hover:bg-blue-600 @else bg-gray-300 text-gray-800 hover:bg-gray-300 @endif">
-                        افزودن به سبد
-                        <svg class="w-5 h-5">
-                            <use href="#shopping-bag"></use>
-                        </svg>
+                        @if(getCartProductCount($product->id,))
+                            ویرایش تعداد در سبدخرید
+                        @else
+                            افزودن به سبد
+                        @endif
+
                     </button>
                 </form>
             </div>

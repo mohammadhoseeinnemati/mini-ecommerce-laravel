@@ -13,11 +13,19 @@ class CartController extends Controller
         $title = 'سبدخرید';
         $userCartItems = session('user_cart',[]);
 
+        $totalPrice = 0;
+        $totalDiscount = 0;
+
         foreach ($userCartItems as $productId => $cart){
-            $userCartItems[$productId]['product'] = Product::find($productId);
+            $product =  Product::find($productId);
+            $userCartItems[$productId]['product']= $product;
+
+            $totalPrice += $product->price * $cart['qty'];
+            $totalDiscount += $product->discount * $cart['qty'];
         }
 
-        return view('cart',compact('title','userCartItems'));
+
+        return view('cart',compact('title','userCartItems','totalPrice','totalDiscount'));
     }
 
     public function add(CartAddRequest $request)

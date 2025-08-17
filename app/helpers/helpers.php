@@ -50,3 +50,16 @@ if(!function_exists('getCartProductsCount')){
        return count($userCart);
     }
 }
+
+if(!function_exists('getCartProductCount')){
+    function getCartProductCount(int $productId, int $default = 0 ):int
+    {
+       $userCart = session('user_cart',[]);
+
+       if(!isset($userCart[$productId])){
+           return $default;
+       }
+
+       return $userCart[$productId]['qty'];
+    }
+}
