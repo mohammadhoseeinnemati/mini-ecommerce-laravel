@@ -6,6 +6,7 @@ use App\Enums\OrderStatus;
 use App\Http\Requests\ProductIndexRequest;
 use App\Models\Category;
 use App\Models\Product;
+use App\Services\ProductFilterHandlerServices;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -13,46 +14,13 @@ class ProductController extends Controller
 {
     public function index(ProductIndexRequest $request)
     {
-        $products = Product::query()
-            ->when($request->filled('category_id'), function (Builder $Query) use ($request){
-               $Query->whereIn('category_id', $request->input('category_id'));
-            })
-            ->when($request->filled('exists'), function (Builder $Query) use ($request){
-                $Query->where('qty', '>', 0);
-            })
-            ->when($request->filled('sort'),function (Builder $Query) use ($request){
-                switch ($request->input('sort')){
-                    case 'most_wanted';
-                        $Query->withSum([
-                            'orderItems'=> function (Builder $Query) {
-                                $Query->whereHas('order',function (Builder $Query){
-                                    $Query->whereIn('status',[
-                                       OrderStatus::delivered,
-                                       OrderStatus::sent
-                                    ]);
-                                });
-                            }
+        $productsQuery = Product::query();
 
-                        ],'qty')
-                            ->orderByDesc('order_items_sum_qty');
-                    break;
+        $filterHandler = new ProductFilterHandlerServices($productsQuery, $request);
+        $filterHandler->applyFilter();
+        $filterHandler->applySort();
 
-                    case 'lowest';
-                        $Query->orderBy('price');
-                    break;
-
-                    case 'highest';
-                        $Query->orderByDesc('price');
-                    break;
-
-                    default:
-                        $Query->orderByDesc('creates_at');
-                    break;
-                }
-            })
-            ->unless($request->filled('sort'),function (Builder $Query){
-                $Query->orderByDesc('creates_at');
-            })
+        $products = $productsQuery
             ->paginate()
             ->withQueryString();
 
