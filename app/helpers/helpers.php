@@ -95,3 +95,14 @@ if(!function_exists('getCartInfo')){
        return compact('totalPrice','totalDiscount');
     }
 }
+
+if(!function_exists('existsInRequest')){
+    function existsInRequest(string $kay, string $value):bool
+    {
+        if(!request()->filled($kay)){
+            return false;
+        }
+
+        return request()->input($kay) === $value;
+    }
+}

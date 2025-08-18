@@ -38,7 +38,7 @@
                         <p class="font-DanaMedium text-gray-700 dark:text-gray-200 text-lg">فیلترها
                         </p>
                     </span>
-                    <a href="{{route('products.remove-filter')}}"
+                    <a href="{{route('products.remove-filter', request()->all())}}"
                        class="text-blue-500 dark:text-blue-400 text-sm cursor-pointer"> حذف فیلتر‌ها</a>
                 </div>
                 <!-- FILTERS -->
@@ -138,12 +138,14 @@
                             </label>
                         </div>
 
-                        @foreach(request()->only(['page','sort']) as $name => $value)
-                            @if(!request()->filled($name))
-                                @continue
-                            @endif
-                            <input type="hidden" name="{{$name}}" value="{{$value}}">
-                        @endforeach
+                        @if(request()->filled('sort'))
+                            <input type="hidden" name="sort" value="{{request()->input('sort')}}">
+                        @endif
+
+                        @if(request()->filled('page'))
+                            <input type="hidden" name="sort" value="{{request()->input('page')}}">
+                        @endif
+
 
                     </div>
                     <div style="width: 100%; padding: 10px">
@@ -341,37 +343,30 @@
                             <h2 class="font-DanaDemiBold text-gray-400">مرتب سازی :</h2>
                         </div>
 
-                        <form class="max-w-sm mx-auto" style="display: flex;gap: 20px">
-                            <div style="width: 50%">
-                                <button
-                                    type="submit"
-                                    style="padding: 9px 20px" tabindex="3" class="submit-btn">
-                                    اعمال
-                                </button>
-                            </div>
-                            <select
-                                id="sort"
-                                name="sort"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        <ul
+                            class="flex items-center gap-x-1 lg:gap-x-4 child:transition-all child:cursor-pointer child:rounded-lg child:px-1 child:py-1 child:text-sm child:lg:text-base">
+                            <li
+                                @class(['text-blue-500' => existsInRequest('sort','newest') || request()->missing('sort'), 'text-gray-400' => request()->filled('sort') && !existsInRequest('sort','newest')])
                             >
-                                <option value="newest" selected>جدید ترین</option>
-                                <option value="most_wanted">پرفروش ترین</option>
-                                <option value="lowest">ارزان ترین</option>
-                                <option value="highest">گران ترین</option>
-                            </select>
+                                <a href="{{request()->fullUrlWithQuery(['sort'=>'newest'])}}">جدید ترین</a>
+                            </li>
+                            <li
+                                @class(['text-blue-500' => existsInRequest('sort','most_wanted'), 'text-gray-400' => !existsInRequest('sort','most_wanted')])
+                            >
+                                <a href="{{request()->fullUrlWithQuery(['sort'=>'most_wanted'])}}">پرفروش ترین</a>
+                            </li>
+                            <li
+                                @class(['text-blue-500' => existsInRequest('sort','lowest'), 'text-gray-400' => !existsInRequest('sort','lowest')])
+                            >
+                                <a href="{{request()->fullUrlWithQuery(['sort'=>'lowest'])}}">ارزان ترین</a>
+                            </li>
+                            <li
+                                @class(['text-blue-500' => existsInRequest('sort','highest'), 'text-gray-400' => !existsInRequest('sort','highest')])
+                            >
+                                <a href="{{request()->fullUrlWithQuery(['sort'=>'highest'])}}">گران ترین</a>
+                            </li>
+                        </ul>
 
-                            @foreach(request()->only(['page','exists']) as $name => $value)
-                                @if(!request()->filled($name))
-                                    @continue
-                                @endif
-                                <input type="hidden" name="{{$name}}" value="{{$value}}">
-                            @endforeach
-
-                            @foreach(request()->input('$category_id')??[] as $name => $value)
-
-                                <input type="hidden" name="$category_id[{{$name}}]" value="{{$value}}">
-                            @endforeach
-                        </form>
                     </div>
                     <span class="text-sm text-gray-400 end">
                         {{number_format($productsCount)}}
