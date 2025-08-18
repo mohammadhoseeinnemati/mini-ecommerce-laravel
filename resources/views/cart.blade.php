@@ -161,7 +161,7 @@
                         </li>
                     </ul>
 
-                    <a href="./checkout.html"
+                    <a href="{{route('checkout.index')}}"
                        class="w-full mt-4 flex items-center gap-x-1 justify-center bg-blue-500 text-white hover:bg-blue-600 transition-all rounded-lg shadow py-2">
                         تایید و تکمیل سفارش
                         <svg class="w-5 h-5">

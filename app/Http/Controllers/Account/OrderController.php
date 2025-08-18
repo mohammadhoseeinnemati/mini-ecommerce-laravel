@@ -15,6 +15,7 @@ class OrderController extends Controller
         $orders = Order::query()
             ->where('user_id','=', Auth::id())
             ->with('orderItems.product')
+            ->orderByDesc('created_at')
             ->limit(10)
             ->get();
 

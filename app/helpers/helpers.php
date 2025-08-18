@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Route;
 
@@ -61,5 +62,36 @@ if(!function_exists('getCartProductCount')){
        }
 
        return $userCart[$productId]['qty'];
+    }
+}
+
+if(!function_exists('getCartProducts')){
+    function getCartProducts():array
+    {
+        $userCartItems = session('user_cart',[]);
+
+        foreach ($userCartItems as $productId => $cart){
+            $product =  Product::find($productId);
+            $userCartItems[$productId]['product']= $product;
+
+        }
+       return $userCartItems;
+    }
+}
+
+if(!function_exists('getCartInfo')){
+    function getCartInfo():array
+    {
+        $cartProducts = getCartProducts();
+
+        $totalPrice = 0;
+        $totalDiscount = 0;
+
+        foreach ($cartProducts as $cart){
+
+            $totalPrice += $cart['product']->price * $cart['qty'];
+            $totalDiscount += $cart['product']->discount * $cart['qty'];
+        }
+       return compact('totalPrice','totalDiscount');
     }
 }

@@ -199,8 +199,10 @@ return [
         'password_confirmation' => 'تاییدیه گذرواژه',
         'city' => 'شهر',
         'state' => 'استان',
+        'province'=>'استان',
         'country' => 'کشور',
         'address' => 'آدرس',
+        'user_address'=>'ادرس',
         'phone' => 'تلفن',
         'mobile' => 'تلفن همراه',
         'age' => 'سن',
@@ -230,6 +232,7 @@ return [
         'link' => 'لینک',
         'mobile_number' => 'شماره تماس',
         'work_number' => 'شماره تماس ثابت',
+        'postal_code'=>'کدپستی',
     ],
 
 ];

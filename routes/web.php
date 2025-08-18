@@ -3,6 +3,7 @@
 use App\Http\Controllers\Account\OrderController;
 use App\Http\Controllers\Account\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +30,9 @@ Route::prefix('cart')->as('cart.')->group(function (){
     Route::post('add',[CartController::class,'add'])->name('add');
     Route::get('{productId}/remove',[CartController::class,'remove'])->name('remove');
     Route::get('clear',[CartController::class,'clear'])->name('clear');
+});
+
+Route::prefix('checkout')->as('checkout.')->middleware('auth')->group(function (){
+    Route::get('/',[CheckoutController::class,'index'])->name('index');
+    Route::post('/',[CheckoutController::class,'post'])->name('post');
 });

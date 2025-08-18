@@ -19,6 +19,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $user_id
  * @property int $total_price
  * @property string $user_address
+ * @property string $province
+ * @property string $city
+ * @property string $postal_code
+ * @property string|null $description
+ * @property int|null $phone
  * @property int $status
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -38,6 +43,9 @@ class Order extends Model
 	protected $casts = [
 		'user_id' => 'int',
 		'total_price' => 'int',
+		'city' => 'int',
+		'description' => 'int',
+		'phone' => 'int',
 		'status' => OrderStatus::class
 	];
 
@@ -45,6 +53,11 @@ class Order extends Model
 		'user_id',
 		'total_price',
 		'user_address',
+		'province',
+		'city',
+		'postal_code',
+		'description',
+		'phone',
 		'status'
 	];
 
