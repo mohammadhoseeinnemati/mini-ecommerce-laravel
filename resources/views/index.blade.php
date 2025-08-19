@@ -8,16 +8,16 @@
             <div class="swiper-wrapper">
                 <a href="shop.html" class="swiper-slide">
                     <img src="./assets/images/slider/4.webp" class="rounded-xl" alt="">
-                </a >
+                </a>
                 <a href="shop.html" class="swiper-slide">
                     <img src="./assets/images/slider/1.jpg" class="rounded-xl" alt="">
-                </a >
+                </a>
                 <a href="shop.html" class="swiper-slide">
                     <img src="./assets/images/slider/2.jpg" class="rounded-xl" alt="">
-                </a >
+                </a>
                 <a href="shop.html" class="swiper-slide">
                     <img src="./assets/images/slider/3.gif" class="rounded-xl" alt="">
-                </a >
+                </a>
             </div>
             <div class="swiper-pagination-wrapper">
                 <div class="swiper-pagination"></div>
@@ -28,12 +28,12 @@
                 class="absolute z-10 bottom-5 opacity-0 invisible group-hover:opacity-100 transition-all duration-300 group-hover:visible right-6 hidden lg:flex items-center gap-x-2 child:flex-center child:w-9 child:h-9 child:cursor-pointer child:bg-white child:dark:bg-gray-800 child:text-gray-700 child:dark:text-gray-200 child:rounded-full child:shadow child-hover:text-blue-600 child-hover:dark:text-blue-500">
                 <button class="button-prev">
                     <svg class="size-5 -rotate-90">
-                        <use href="#chevron" />
+                        <use href="#chevron"/>
                     </svg>
                 </button>
                 <button class="button-next">
                     <svg class="size-5 rotate-90">
-                        <use href="#chevron" />
+                        <use href="#chevron"/>
                     </svg>
                 </button>
             </div>
@@ -62,78 +62,21 @@
                         <p class="text-sm text-gray-500 dark:text-gray-300">جدیدترین و بروزترین دسته بندی ها</p>
                     </div>
                 </div>
-                <div class="w-full xs:w-auto flex justify-center items-center gap-x-2">
-                    <a href="shop.html"
-                       class="group shadow-xl text-sm md:text-base flex gap-x-1.5 items-center px-2 h-10 md:px-3 text-white bg-blue-600 rounded-xl">
-                        <p>مشاهده همه</p>
-                        <span
-                            class="w-7 h-7 rounded-full bg-blue-500 flex-center md:group-hover:-translate-x-1 transition-transform duration-300">
-                            <svg class="size-5">
-                                <use href="#arrow" />
-                            </svg>
-                        </span>
-                    </a>
-                </div>
             </div>
             <!-- ITEMS -->
             <div
-                class="flex items-center justify-evenly flex-wrap mt-12 child:mb-8 gap-x-8 child:items-center child:flex-col child:duration-300 child:cursor-pointer child:gap-y-1 child:text-gray-800 child:dark:text-gray-300 child:relative">
-                <a href="shop.html" class="group flex">
-                    <img src="./assets/images/category/5.png"
-                         class="w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] object-cover group-hover:grayscale group-hover:opacity-90 duration-300"
-                         alt="category1" />
-                    <p class="pt-1 text-sm lg:text-lg line-clamp-1">
-                        موبایل
-                    </p>
-                </a>
-                <a href="shop.html" class="group flex">
-                    <img src="./assets/images/category/6.png"
-                         class="w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] object-cover group-hover:grayscale group-hover:opacity-90 duration-300"
-                         alt="category1" />
-                    <p class="pt-1 text-sm lg:text-lg line-clamp-1">
-                        کالای دیجیتال
-                    </p>
-                </a>
-                <a href="shop.html" class="group flex">
-                    <img src="./assets/images/category/7.png"
-                         class="w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] object-cover group-hover:grayscale group-hover:opacity-90 duration-300"
-                         alt="category1" />
-                    <p class="pt-1 text-sm lg:text-lg line-clamp-1">
-                        خانه و آشپزخانه
-                    </p>
-                </a>
-                <a href="shop.html" class="group flex">
-                    <img src="./assets/images/category/8.png"
-                         class="w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] object-cover group-hover:grayscale group-hover:opacity-90 duration-300"
-                         alt="category1" />
-                    <p class="pt-1 text-sm lg:text-lg line-clamp-1">
-                        آرایشی بهداشتی
-                    </p>
-                </a>
-                <a href="shop.html" class="group flex">
-                    <img src="./assets/images/category/9.png"
-                         class="w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] object-cover group-hover:grayscale group-hover:opacity-90 duration-300"
-                         alt="category1" />
-                    <p class="pt-1 text-sm lg:text-lg line-clamp-1">
-                        لوازم تحریر
-                    </p>
-
-                </a>
-                <a href="shop.html" class="group flex">
-                    <img src="./assets/images/category/10.png"
-                         class="w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] object-cover group-hover:grayscale group-hover:opacity-90 duration-300"
-                         alt="category1" />
-                    <p class="pt-1 text-sm lg:text-lg line-clamp-1">
-                        گیفت کارت
-                    </p>
-                    <a href="shop.html" class="group hidden md:flex">
-                        <img src="./assets/images/category/11.png"
+                class="flex items-center justify-evenly flex-wrap mt-12 child:mb-8 gap-x-8 child:items-center child:flex-col child:duration-300 child:cursor-pointer child:gap-y-1 child:text-gray-800 child:dark:text-gray-300 child:relative"
+            >
+                @foreach($categories as $category)
+                    <a href="{{route('products.index',['category_id'=>[$category->id =>'on']])}}" class="group flex">
+                        <img src="{{asset('assets/images/category/5.png')}}"
                              class="w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] object-cover group-hover:grayscale group-hover:opacity-90 duration-300"
-                             alt="category1" />
+                             alt="category1"/>
                         <p class="pt-1 text-sm lg:text-lg line-clamp-1">
-                            ابزار آلات
+                            {{$category->name}}
                         </p>
                     </a>
+                @endforeach
             </div>
         </section>
 
@@ -159,12 +102,12 @@
                     <div class="flex items-center gap-x-2">
                         <button class="slider-navigate_btn LatestProducts-prev-slide">
                             <svg class="size-6 -rotate-90">
-                                <use href="#chevron" />
+                                <use href="#chevron"/>
                             </svg>
                         </button>
                         <button class="slider-navigate_btn LatestProducts-next-slide">
                             <svg class="size-6 rotate-90">
-                                <use href="#chevron" />
+                                <use href="#chevron"/>
                             </svg>
                         </button>
                     </div>
@@ -174,7 +117,7 @@
                         <span
                             class="w-7 h-7 rounded-full bg-blue-500 flex-center md:group-hover:-translate-x-1 transition-transform duration-300">
                             <svg class="size-5">
-                                <use href="#arrow" />
+                                <use href="#arrow"/>
                             </svg>
                         </span>
                     </a>
@@ -225,7 +168,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/1.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/1.png"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/2.png" alt="">
@@ -301,7 +245,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/3.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/3.png"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/4.png" alt="">
@@ -377,7 +322,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/5.webp"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/5.webp"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/6.webp" alt="">
@@ -453,7 +399,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/7.webp"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/7.webp"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/8.webp" alt="">
@@ -529,7 +476,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/1.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/1.png"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/2.png" alt="">
@@ -605,7 +553,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/3.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/3.png"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/4.png" alt="">
@@ -668,12 +617,12 @@
                     <div class="flex items-center gap-x-2">
                         <button class="slider-navigate_btn BestSelling-prev-slide">
                             <svg class="size-6 -rotate-90">
-                                <use href="#chevron" />
+                                <use href="#chevron"/>
                             </svg>
                         </button>
                         <button class="slider-navigate_btn BestSelling-next-slide">
                             <svg class="size-6 rotate-90">
-                                <use href="#chevron" />
+                                <use href="#chevron"/>
                             </svg>
                         </button>
                     </div>
@@ -683,7 +632,7 @@
                         <span
                             class="w-7 h-7 rounded-full bg-blue-500 flex-center md:group-hover:-translate-x-1 transition-transform duration-300">
                             <svg class="size-5">
-                                <use href="#arrow" />
+                                <use href="#arrow"/>
                             </svg>
                         </span>
                     </a>
@@ -734,7 +683,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/1.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/1.png"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/2.png" alt="">
@@ -810,7 +760,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/3.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/3.png"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/4.png" alt="">
@@ -886,7 +837,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/5.webp"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/5.webp"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/6.webp" alt="">
@@ -962,7 +914,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/7.webp"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/7.webp"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/8.webp" alt="">
@@ -1038,7 +991,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/1.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/1.png"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/2.png" alt="">
@@ -1114,7 +1068,8 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./assets/images/products/3.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute"
+                                 src="./assets/images/products/3.png"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
                                  src="./assets/images/products/4.png" alt="">
