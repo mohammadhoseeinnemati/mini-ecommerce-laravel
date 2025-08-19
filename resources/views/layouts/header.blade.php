@@ -7,13 +7,22 @@
             <!-- Search Box -->
             <div class="relative z-20">
                 <!-- INPUT -->
-                <div
-                    class="search-btn-open flex gap-x-2 app-border bg-gray-50 dark:bg-gray-700 p-1 rounded-full cursor-pointer ring-blue-400 w-84 transition-all">
-                    <svg class="size-6 p-1.5 flex-center text-gray-100 bg-blue-600 rounded-full w-9 h-9">
-                        <use href="#search" />
-                    </svg>
-                    <input placeholder="جستجو در محصولات..." type="text">
-                </div>
+                <form action="{{route('products.index')}}">
+                    <div
+                        class="search-btn-open flex gap-x-2 app-border bg-gray-50 dark:bg-gray-700 p-1 rounded-full cursor-pointer ring-blue-400 w-84 transition-all">
+                        <button type="submit">
+                            <svg  class="size-6 p-1.5 flex-center text-gray-100 bg-blue-600 rounded-full w-9 h-9">
+                                <use href="#search" />
+                            </svg>
+                        </button>
+                        <input
+                            placeholder="جستجو در محصولات..."
+                            type="text"
+                            name="keyword"
+                            value="{{request()->input('keyword')}}"
+                        >
+                    </div>
+                </form>
             </div>
             <!-- Logo -->
             <a href="{{route('index')}}" class="flex flex-col text-center ml-20">

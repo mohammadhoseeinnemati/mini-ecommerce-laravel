@@ -54,6 +54,12 @@ class ProductIndexRequest extends FormRequest
                 'string',
                 'in:on'
             ],
+            'keyword'=>[
+                'nullable',
+                'string',
+                'min:2',
+                'max:100'
+            ],
             'sort'=>[
                 'nullable',
                 'string',

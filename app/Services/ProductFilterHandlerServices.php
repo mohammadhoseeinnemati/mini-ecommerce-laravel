@@ -25,6 +25,14 @@ class ProductFilterHandlerServices
             ->when($request->filled('category_id'), function (Builder $Query) use ($request) {
                 $Query->whereIn('category_id', $request->input('category_id'));
             })
+            ->when($request->filled('keyword'), function (Builder $Query) use ($request) {
+                $keyword = $request->input('keyword');
+
+                $Query->whereAny([
+                    'name',
+                    'name_en'
+                ],'LIKE',"%$keyword%");
+            })
             ->when($request->filled('exists'), function (Builder $Query) use ($request) {
                 $Query->where('qty', '>', 0);
             });
