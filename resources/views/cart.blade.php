@@ -55,52 +55,78 @@
 
                 </div>
                 <!-- PRODUCT ITEMS -->
-                <div
-                    class="w-full flex flex-col gap-y-4 child:p-2 lg:child:p-4 ">
-                    @forelse($userCartItems as $CartItem)
-                        <!-- PRODUCT ITEM -->
-                        <div
-                            class="w-full flex justify-between relative border-b-2 border-gray-200 dark:border-white/20 ">
-                            <div class="flex flex-col sm:flex-row items-center gap-6">
-                                <!-- IMG AND COUNT BTN -->
-                                <div class="flex w-fit flex-col">
-                                    <img src="{{asset('assets/images/products/8.webp')}}" class="w-36" alt="">
-                                    <button
-                                        class="flex items-center justify-between gap-x-1 rounded-lg border border-gray-200 dark:border-white/20 py-1 px-2">
-                                        <svg class="w-4 h-4 increment text-green-600">
-                                            <use href="#plus"></use>
-                                        </svg>
-                                        <input
-                                            type="number"
-                                            name="customInput"
-                                            id="customInput"
-                                            min="1"
-                                            max="{{$CartItem['product']->qty}}"
-                                            value="{{$CartItem['qty']}}"
-                                            class="custom-input mr-8 text-lg bg-transparent"
-                                        >
-                                        <svg class="w-4 h-4 decrement text-red-500">
-                                            <use href="#minus"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <!-- information and name product -->
-                                <div class="flex flex-col gap-y-4">
-                                    <h2 class="font-DanaMedium line-clamp-1">
-                                        {{$CartItem['product']->name}}
-                                    </h2>
-                                    <h2 class="font-DanaMedium line-clamp-1">
-                                        {{$CartItem['product']->name_en }}
-                                    </h2>
-                                    <span
-                                        class="flex items-center gap-x-1 text-gray-700 dark:text-gray-300 font-DanaMedium mt-4">
+                <form action="{{route('cart.update-qty')}}" method="post">
+                    @csrf
+                    <div
+                        class="w-full flex flex-col gap-y-4 child:p-2 lg:child:p-4 ">
+                        @forelse($userCartItems as $CartItem)
+                            <!-- PRODUCT ITEM -->
+                            <div
+                                class="w-full flex justify-between relative border-b-2 border-gray-200 dark:border-white/20 ">
+                                <div class="flex flex-col sm:flex-row items-center gap-6">
+                                    <!-- IMG AND COUNT BTN -->
+                                    <div class="flex w-fit flex-col">
+                                        <img src="{{asset('assets/images/products/8.webp')}}" class="w-36" alt="">
+                                        <button
+                                            type="button"
+                                            class="flex items-center justify-between gap-x-1 rounded-lg border border-gray-200 dark:border-white/20 py-1 px-2">
+                                            <svg class="w-4 h-4 increment text-green-600">
+                                                <use href="#plus"></use>
+                                            </svg>
+                                            <input
+                                                type="number"
+                                                name="qty[{{$CartItem['product_id']}}][qty]"
+                                                data-cart-product-id="{{$CartItem['product_id']}}"
+                                                id="qtyInput"
+                                                min="1"
+                                                max="{{$CartItem['product']->qty}}"
+                                                value="{{$CartItem['qty']}}"
+                                                class="qty-input custom-input mr-8 text-lg bg-transparent"
+                                            >
+                                            <input type="hidden" name="qty[{{$CartItem['product_id']}}][product_id]" value="{{$CartItem['product_id']}}">
+                                            <svg class="w-4 h-4 decrement text-red-500">
+                                                <use href="#minus"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <!-- information and name product -->
+                                    <div class="flex flex-col gap-y-4">
+                                        <h2 class="font-DanaMedium line-clamp-1">
+                                            {{$CartItem['product']->name}}
+                                        </h2>
+                                        <h2 class="font-DanaMedium line-clamp-1">
+                                            {{$CartItem['product']->name_en }}
+                                        </h2>
+                                        <span
+                                            class="flex items-center gap-x-1 text-gray-700 dark:text-gray-300 font-DanaMedium mt-4">
                                         <div class="product-card_price">
                                             @if($CartItem['product']->qty > 0)
                                                 @if($CartItem['product']->discount > 0)
-                                                    <del>{{number_format($CartItem['product']->price)}}<h6>تومان</h6></del>
-                                                    <p>{{number_format($CartItem['product']->discount - $CartItem['product']->price)}}</p>
+                                                    <del>
+                                                        <div
+                                                            id="price-{{$CartItem['product_id']}}"
+                                                            data-price="{{$CartItem['product']->price * $CartItem['qty']}}"
+                                                            data-qty="{{$CartItem['qty']}}"
+                                                            data-has-discount="true"
+                                                            data-base-discount="{{$CartItem['product']->didcount}}"
+                                                        >
+                                                            {{number_format($CartItem['product']->price)}}
+                                                        </div>
+                                                        <h6>تومان</h6>
+                                                    </del>
+                                                    <p
+                                                        id="final-price-{{$CartItem['product_id']}}"
+                                                    >
+                                                      {{ number_format(($CartItem['product']->price * $CartItem['qty']) - ($CartItem['product']->discount * $CartItem['qty'])) }}
+                                                    </p>
                                                 @else
-                                                    <p>{{number_format($CartItem['product']->price)}}</p>
+                                                    <p
+                                                        id="price-{{$CartItem['product_id']}}"
+                                                        data-price="{{$CartItem['product']->price * $CartItem['qty']}}"
+                                                        data-qty="{{$CartItem['qty']}}"
+                                                    >
+                                                        {{number_format($CartItem['product']->price)}}
+                                                    </p>
                                                 @endif
                                                 <span>تومان</span>
                                             @else
@@ -108,23 +134,32 @@
                                             @endif
                                          </div>
                                     </span>
-                                    <svg class=" flex sm:hidden absolute top-0 left-0 w-5 h-5">
-                                        <use href="#close"></use>
-                                    </svg>
+                                        <svg class=" flex sm:hidden absolute top-0 left-0 w-5 h-5">
+                                            <use href="#close"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="hidden sm:flex items-end justify-between flex-col">
+                                    <a href="{{route('cart.remove', $CartItem['product_id'])}}">
+                                        <svg class="w-5 h-5 cursor-pointer">
+                                            <use href="#x-mark"></use>
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="hidden sm:flex items-end justify-between flex-col">
-                                <a href="{{route('cart.remove', $CartItem['product_id'])}}">
-                                    <svg class="w-5 h-5 cursor-pointer">
-                                        <use href="#x-mark"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    @empty
-                        <span>در سبد خرید شما محصولی وجود ندارد</span>
-                    @endforelse
-                </div>
+                        @empty
+                            <span>در سبد خرید شما محصولی وجود ندارد</span>
+                        @endforelse
+                    </div>
+
+                    <button
+                       class="w-full mt-4 flex items-center gap-x-1 justify-center bg-blue-500 text-white hover:bg-blue-600 transition-all rounded-lg shadow py-2">
+                        تایید و تکمیل سفارش
+                        <svg class="w-5 h-5">
+                            <use href="#shopping-bag"></use>
+                        </svg>
+                    </button>
+                </form>
             </div>
 
            @if(getCartProductsCount())
@@ -175,3 +210,36 @@
 
     </main>
 @endsection
+
+@push('script')
+    <script>
+        $('.qty-input').on('change',function (){
+            let currentQty = $(this).val()
+
+            let productId = $(this).data('cart-product-id')
+            let priceElement = $('#price-' + productId )
+
+            let originalPrice = priceElement.data('price')
+            let originalQty = priceElement.data('qty')
+
+            let basePrice = originalPrice / originalQty
+
+            let updatedPrice = basePrice * currentQty
+
+            priceElement.text(updatedPrice)
+
+            let hasDiscount = priceElement.data('has-discount')
+
+            if(hasDiscount){
+                let baseDiscount = priceElement.data('base-discount')
+
+                let totalDiscount = baseDiscount * currentQty
+
+                let finalPriceElement = $('#final-price-' + productId)
+
+                finalPriceElement.text(updatedPrice - totalDiscount)
+            }
+        })
+
+    </script>
+@endpush

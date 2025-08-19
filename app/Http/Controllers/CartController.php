@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CartAddRequest;
+use App\Http\Requests\cartUpdateQtyRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -65,5 +66,22 @@ class CartController extends Controller
         session()->forget('user_cart');
 
         return back();
+    }
+
+    public function updateQty(cartUpdateQtyRequest $request)
+    {
+        $currentUserCart = session('user_cart',[]);
+
+        $requestQty = $request->input('qty');
+
+        foreach ($currentUserCart as $productId => $cartItem){
+            $currentUserCart[$productId]['qty'] = $requestQty[$productId]['qty'];
+        }
+
+        session([
+            'user_cart'=>$currentUserCart
+        ]);
+
+        return redirect()->route('cart.index');
     }
 }

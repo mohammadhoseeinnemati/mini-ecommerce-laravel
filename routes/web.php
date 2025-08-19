@@ -28,8 +28,11 @@ Route::prefix('products')->as('products.')->group(function (){
 Route::prefix('cart')->as('cart.')->group(function (){
     Route::get('/',[CartController::class,'index'])->name('index');
     Route::post('add',[CartController::class,'add'])->name('add');
+
     Route::get('{productId}/remove',[CartController::class,'remove'])->name('remove');
     Route::get('clear',[CartController::class,'clear'])->name('clear');
+
+    Route::post('update-qty',[CartController::class,'updateQty'])->name('update-qty');
 });
 
 Route::prefix('checkout')->as('checkout.')->middleware('auth')->group(function (){

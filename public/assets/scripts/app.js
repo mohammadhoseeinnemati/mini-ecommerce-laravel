@@ -120,6 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const value = parseInt(input.value) || 0;
       if (value < 20) {
         input.value = value + 1;
+
+          // Trigger "change" event manually
+          const changeEvent = new Event('change', { bubbles: true });
+          input.dispatchEvent(changeEvent);
+
       }
     });
   });
@@ -129,8 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', event => {
       const input = event.target.closest('button').querySelector('.custom-input');
       const value = parseInt(input.value) || 0;
-      if (value > 0) {
+      if (value > 1) {
         input.value = value - 1;
+
+          // Trigger "change" event manually
+          const changeEvent = new Event('change', { bubbles: true });
+          input.dispatchEvent(changeEvent);
       }
     });
   });
