@@ -1,5 +1,16 @@
 @extends('admin.layouts.app')
 
+@section('breadcrumbs')
+    <p class="fw-medium fs-18 mb-0">
+        سلام،
+        {{auth('admin')->user()->first_name}}
+        عزیز
+    </p>
+    <p class="fs-13 text-muted mb-0">
+        به داشبورد مدیریت فروشگاه خوش آمدید.
+    </p>
+@endsection
+
 @section('content')
     <!-- Start::app-content -->
     <div class="main-content app-content">

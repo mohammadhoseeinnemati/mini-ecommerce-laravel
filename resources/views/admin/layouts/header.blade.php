@@ -41,14 +41,7 @@
             <!-- Start::header-element -->
             <div class="header-element header-search d-md-block d-none my-auto">
                 <div>
-                    <p class="fw-medium fs-18 mb-0">
-                        سلام،
-                        مرتضی
-                        عزیز
-                    </p>
-                    <p class="fs-13 text-muted mb-0">
-                        به داشبورد مدیریت فروشگاه خوش آمدید.
-                    </p>
+                   @yield('breadcrumbs')
                 </div>
             </div>
             <!-- End::header-element -->
@@ -115,31 +108,22 @@
                     <li class="p-3 border-bottom">
                         <div class="d-flex align-items-center">
                             <div>
-                                <p class="mb-0 fw-semibold lh-1">مرتضی مهدی زاده</p>
-                                <span class="fs-11 text-muted">mrking0151@gmail.com</span>
+                                <p class="mb-0 fw-semibold lh-1">{{getAdminFullName()}}</p>
+                                <span class="fs-11 text-muted">{{auth('admin')->user()->email}}</span>
                             </div>
                         </div>
-                    </li>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center px-3" href="/">
-                            <i class="ri-user-line fs-15 me-2 text-gray fw-normal"></i>
-                            اطلاعات پروفایل
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center px-3" href="/">
-                            <i class="ri-user-settings-line fs-15 me-2 text-gray fw-normal"></i>
-                            تنظیمات
-                        </a>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
                     <li>
                         <a class="dropdown-item d-flex align-items-center text-danger px-3"
-                           href="http://127.0.0.1:8000/admin/auth/logout">
-                            <i class="ri-logout-circle-line fs-15 me-2 text-danger fw-normal"
-                               style="position: relative; top: -2px"></i>
+                           href="{{route('admin.auth.logout')}}">
+                            <i
+                                class=" fs-15 me-2 text-danger fw-normal"
+                                style="position: relative; top: -2px">
+
+                            </i>
                             خروج
                         </a>
                     </li>

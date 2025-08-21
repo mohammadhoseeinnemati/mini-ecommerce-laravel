@@ -106,3 +106,12 @@ if(!function_exists('existsInRequest')){
         return request()->input($kay) === $value;
     }
 }
+
+if(!function_exists('getAdminFullName')){
+    function getAdminFullName():string
+    {
+       $admin = auth('admin')->user();
+
+       return $admin->first_name. ' ' .$admin->last_name;
+    }
+}
