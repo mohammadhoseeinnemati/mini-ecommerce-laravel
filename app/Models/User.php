@@ -54,4 +54,10 @@ class User extends Authenticatable
 	{
 		return $this->hasMany(Order::class);
 	}
+
+    public function otps()
+    {
+        return $this->hasMany(Otp::class, 'user_id');
+    }
+
 }
