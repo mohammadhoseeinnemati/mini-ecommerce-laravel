@@ -342,56 +342,123 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // OTP TIMER
-document.addEventListener("DOMContentLoaded", function () {
-  const timerElement = document.querySelector('.login-timer');
-  const timerTextElement = document.querySelector('.login-timer_text');
-  const resendButton = document.querySelector('.resend-code');
+// document.addEventListener("DOMContentLoaded", function () {
+//   const timerElement = document.querySelector('.login-timer');
+//   const timerTextElement = document.querySelector('.login-timer_text');
+//   const resendButton = document.querySelector('.resend-code');
+//
+//   if (timerElement && resendButton && timerTextElement) {
+//     let time = 180;
+//     let timerInterval;
+//
+//     function updateTimer() {
+//       const minutes = Math.floor(time / 60);
+//       const seconds = time % 60;
+//
+//       timerElement.textContent = `${padZero(minutes)}:${padZero(seconds)}`;
+//
+//       if (time <= 0) {
+//         clearInterval(timerInterval);
+//         timerTextElement.classList.add('hidden');
+//         resendButton.classList.add('active');
+//         resendButton.removeAttribute('disabled');
+//         return;
+//       }
+//
+//       time--;
+//     }
+//
+//     function padZero(num) {
+//       return num < 10 ? "0" + num : num;
+//     }
+//
+//     function startTimer() {
+//       clearInterval(timerInterval);
+//       time = 180;
+//       timerTextElement.classList.remove('hidden');
+//       timerTextElement.classList.add('flex');
+//       resendButton.classList.remove('active');
+//       resendButton.setAttribute('disabled', 'true');
+//       updateTimer();
+//       timerInterval = setInterval(updateTimer, 1000);
+//     }
+//
+//     startTimer();
+//
+//     resendButton.addEventListener('click', function () {
+//       if (resendButton.classList.contains('active')) {
+//         startTimer();
+//       }
+//     });
+//   }
+// });
 
-  if (timerElement && resendButton && timerTextElement) {
+document.addEventListener("DOMContentLoaded", function () {
+    const timerElement = document.querySelector('.login-timer');
+    const timerTextElement = document.querySelector('.login-timer_text');
+    const resendButton = document.querySelector('.resend-code');
+
+    if (!timerElement || !timerTextElement || !resendButton) return;
+
     let time = 180;
     let timerInterval;
 
-    function updateTimer() {
-      const minutes = Math.floor(time / 60);
-      const seconds = time % 60;
-
-      timerElement.textContent = `${padZero(minutes)}:${padZero(seconds)}`;
-
-      if (time <= 0) {
-        clearInterval(timerInterval);
-        timerTextElement.classList.add('hidden');
+    // بررسی اگر تایمر قبلا تموم شده
+    if (localStorage.getItem('otpFinished') === 'true') {
+        timerTextElement.classList.add('flex');
+        timerTextElement.classList.remove('hidden');
         resendButton.classList.add('active');
         resendButton.removeAttribute('disabled');
-        return;
-      }
+        return; // دیگه تایمر شروع نمیشه
+    }
 
-      time--;
+    // اگر زمان باقی مانده داریم، استفاده می‌کنیم
+    if (localStorage.getItem('otpTimeLeft')) {
+        time = parseInt(localStorage.getItem('otpTimeLeft'));
+    }
+
+    function updateTimer() {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        timerElement.textContent = `${padZero(minutes)}:${padZero(seconds)}`;
+
+        if (time <= 0) {
+            clearInterval(timerInterval);
+            timerTextElement.classList.add('flex');
+            timerTextElement.classList.remove('hidden');
+            resendButton.classList.add('active');
+            resendButton.removeAttribute('disabled');
+            localStorage.setItem('otpFinished', 'true'); // تایمر تموم شد
+            localStorage.removeItem('otpTimeLeft');
+            return;
+        }
+
+        time--;
+        localStorage.setItem('otpTimeLeft', time);
     }
 
     function padZero(num) {
-      return num < 10 ? "0" + num : num;
+        return num < 10 ? "0" + num : num;
     }
 
-    function startTimer() {
-      clearInterval(timerInterval);
-      time = 180;
-      timerTextElement.classList.remove('hidden');
-      timerTextElement.classList.add('flex');
-      resendButton.classList.remove('active');
-      resendButton.setAttribute('disabled', 'true');
-      updateTimer();
-      timerInterval = setInterval(updateTimer, 1000);
-    }
+    // شروع تایمر فقط اگر هنوز تموم نشده
+    timerTextElement.classList.remove('hidden');
+    timerTextElement.classList.add('flex');
+    resendButton.classList.remove('active');
+    resendButton.setAttribute('disabled', 'true');
 
-    startTimer();
+    updateTimer();
+    timerInterval = setInterval(updateTimer, 1000);
 
     resendButton.addEventListener('click', function () {
-      if (resendButton.classList.contains('active')) {
-        startTimer();
-      }
+        if (resendButton.classList.contains('active')) {
+            // کاربر میره به صفحه لاگین
+            window.location.href = "{{ route('auth.login.index') }}";
+        }
     });
-  }
 });
+
+
 
 // PASSWORD INPUT
 document.addEventListener("DOMContentLoaded", function () {

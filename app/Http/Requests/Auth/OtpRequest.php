@@ -11,7 +11,7 @@ class OtpRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class OtpRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'code' => [
+                'required',
+                'array',
+                'size:4'
+            ],
+            'code.*' => [
+                'required',
+                 'digits:1'
+            ],
         ];
     }
 }

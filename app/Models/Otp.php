@@ -11,8 +11,9 @@ class Otp extends Model
     protected $fillable = [
         'user_id',
         'code',
-        'expires_at',
+        'expires_at'
     ];
+
 
     public $timestamps = false;
 
