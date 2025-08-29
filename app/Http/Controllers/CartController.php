@@ -32,11 +32,18 @@ class CartController extends Controller
             return backWithError('محصول انتخاب شده مجاز به اضافه کردن در سبد خرید نیست');
         }
 
+
         $currentUserCart = session('user_cart',[]);
+
+        $newQty = $request->input('qty');
+
+        if (isset($currentUserCart[$request->input('product_id')])){
+            $newQty += $currentUserCart[$request->input('product_id')]['qty'];
+        }
 
         $currentUserCart[$request->input('product_id')]=[
             'product_id'=> $request->input('product_id'),
-            'qty'=> $request->input('qty')
+            'qty'=> $newQty
         ];
 
         session([

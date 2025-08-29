@@ -110,7 +110,7 @@
                                                             data-has-discount="true"
                                                             data-base-discount="{{$CartItem['product']->didcount}}"
                                                         >
-                                                            {{number_format($CartItem['product']->price)}}
+                                                            {{number_format($CartItem['product']->price * $CartItem['qty'])}}
                                                         </div>
                                                         <h6>تومان</h6>
                                                     </del>
@@ -154,7 +154,7 @@
 
                     <button
                        class="w-full mt-4 flex items-center gap-x-1 justify-center bg-blue-500 text-white hover:bg-blue-600 transition-all rounded-lg shadow py-2">
-                        تایید و تکمیل سفارش
+                        تایید و بروزرسانی سفارش
                         <svg class="w-5 h-5">
                             <use href="#shopping-bag"></use>
                         </svg>
