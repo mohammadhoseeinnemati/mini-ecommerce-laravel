@@ -9,7 +9,7 @@
 
             <!-- Start::header-element -->
             <div class="header-element mx-lg-0 me-2 d-lg-none">
-                <a aria-label="Hide Sidebar" class="sidemenu-toggle header-link" data-bs-toggle="sidebar"
+                <a aria-label="Hide Sidebar" class="sidebar-toggle header-link" data-bs-toggle="sidebar"
                    href="javascript:void(0);">
                     <svg xmlns="http://www.w3.org/2000/svg" class="header-link-icon menu-btn" width="24" height="24"
                          viewBox="0 0 24 24">
@@ -41,7 +41,7 @@
             <!-- Start::header-element -->
             <div class="header-element header-search d-md-block d-none my-auto">
                 <div>
-                   @yield('breadcrumbs')
+                    @yield('breadcrumbs')
                 </div>
             </div>
             <!-- End::header-element -->
@@ -108,7 +108,7 @@
                     <li class="p-3 border-bottom">
                         <div class="d-flex align-items-center">
                             <div>
-                                <p class="mb-0 fw-semibold lh-1">{{getAdminFullName()}}</p>
+                                <p class="mb-0 fw-semibold lh-1">{{getAuthenticatedUserFullName('admin')}}</p>
                                 <span class="fs-11 text-muted">{{auth('admin')->user()->email}}</span>
                             </div>
                         </div>

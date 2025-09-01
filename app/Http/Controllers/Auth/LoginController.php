@@ -49,7 +49,6 @@ class LoginController extends Controller
             'text' => $text,
         ]);
 
-
         $result = $response->json();
 
 

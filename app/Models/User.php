@@ -54,6 +54,12 @@ class User extends Authenticatable
 	{
 		return $this->hasMany(Order::class);
 	}
+    public function latestOrders()
+	{
+		return $this->hasMany(Order::class)
+            ->orderByDesc('created_at')
+            ->limit(3);
+	}
 
     public function otps()
     {

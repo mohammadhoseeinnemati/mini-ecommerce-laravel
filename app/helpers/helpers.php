@@ -1,11 +1,14 @@
 <?php
 
+use App\Models\Admin;
 use App\Models\Product;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Route;
 
 if(!function_exists('backWithError')){
-    function backWithError(string $message): RedirectResponse
+    function backWithError(string $message = 'خطای رخ داده است'): RedirectResponse
     {
         return back()
             ->withErrors([
@@ -24,15 +27,27 @@ if(!function_exists('getAuthenticatedUserFullName')){
 }
 
 if(!function_exists('activeSidebarItem')){
-    function activeSidebarItem(string $targetRouteName, string $class = 'active'):string
+    function activeSidebarItem(string|array $targetRouteNames, string $class = 'active'):string
     {
         $currentRouteName = Route::currentRouteName();
 
-        if($currentRouteName != $targetRouteName){
-            return '';
+        $active = false;
+
+        if(is_string($targetRouteNames)){
+            $targetRouteNames = [$targetRouteNames];
         }
 
-        return $class;
+        foreach ($targetRouteNames as $targetRouteName){
+            if ($active){
+                break;
+            }
+
+            if ($targetRouteName == $currentRouteName){
+                $active = true;
+            }
+        }
+
+        return $active ? $class : "";
     }
 }
 
@@ -107,11 +122,28 @@ if(!function_exists('existsInRequest')){
     }
 }
 
-if(!function_exists('getAdminFullName')){
-    function getAdminFullName():string
+if(!function_exists('getUsersFullName')){
+    function getUsersFullName(Admin|User $user):string
     {
-       $admin = auth('admin')->user();
+       return $user->first_name. ' ' .$user->last_name;
+    }
+}
 
-       return $admin->first_name. ' ' .$admin->last_name;
+if(!function_exists('getSortSelected')){
+    function getSortSelected(string $kay , bool $default = false):bool
+    {
+       if (request()->missing('sort') && $default){
+           return true;
+       }
+
+       return request()->query('sort') == $kay;
+    }
+}
+
+
+if(!function_exists('toJalaliDatetime')){
+    function toJalaliDatetime(Carbon $datetime ):? string
+    {
+        return $datetime->toJalali()->format('H:i Y/m/d');
     }
 }

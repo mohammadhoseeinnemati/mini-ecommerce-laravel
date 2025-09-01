@@ -6,7 +6,10 @@
     data-header-styles="light"
     data-menu-styles="light"
     dir="rtl"
-    data-vertical-style="overlay">
+    data-vertical-style="overlay"
+    loader="enable"
+>
+
 <head>
     <!-- Meta Data -->
     <meta charset="UTF-8">
@@ -17,8 +20,6 @@
         پنل مدیریت
         | داشبورد
     </title>
-
-    <meta name="csrf-token" content="G3faz5te2OVLWMw1sn2U47RRUgVWPGJznIyOIEMM">
 
     <!-- Favicon -->
     <link rel="icon" href="{{asset('assets/admin/images/brand-logos/favicon.ico')}}" type="image/x-icon">
@@ -73,7 +74,7 @@
 <body @class(['authentication-background' => isset($authLayout)])>
 
 <!-- Loader -->
-<div id="loader" class="d-none">
+<div id="loader" >
     <img src="{{asset('assets/admin/images/media/loader.svg')}}" alt="">
 </div>
 <!-- Loader -->
