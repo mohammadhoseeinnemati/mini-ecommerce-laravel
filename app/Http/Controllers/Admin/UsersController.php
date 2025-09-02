@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\OrderUpdateRequest;
+use App\Http\Requests\Admin\UserUpdateRequest;
 use App\Models\User;
 use Doctrine\DBAL\Query;
 use Exception;
@@ -77,7 +77,7 @@ class UsersController extends Controller
         return view('admin.users.edit',compact('title','user'));
     }
 
-    public function update(OrderUpdateRequest $request, int $userId)
+    public function update(UserUpdateRequest $request, int $userId)
     {
         $user = User::findOrFail($userId);
 
@@ -114,6 +114,5 @@ class UsersController extends Controller
 
         return redirect()->route('admin.users.index');
     }
-
 
 }
