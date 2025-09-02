@@ -11,8 +11,8 @@
             <div class="">
                 <nav>
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">جزییات کاربران</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">لیست کاربران</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">لیست کاربران</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> جزییات کاربران</li>
                     </ol>
                 </nav>
             </div>

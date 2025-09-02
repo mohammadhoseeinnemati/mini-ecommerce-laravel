@@ -147,3 +147,18 @@ if(!function_exists('toJalaliDatetime')){
         return $datetime->toJalali()->format('H:i Y/m/d');
     }
 }
+
+
+
+if(!function_exists('convertEnumCasesToString')){
+    function convertEnumCasesToString($enumClass ): string
+    {
+        $string = [];
+
+        foreach ($enumClass::cases() as $case){
+            $string[] = $case->value;
+        }
+
+        return implode(',',$string);
+    }
+}

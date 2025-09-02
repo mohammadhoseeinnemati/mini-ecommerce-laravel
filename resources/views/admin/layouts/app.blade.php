@@ -18,7 +18,11 @@
 
     <title>
         پنل مدیریت
-        | داشبورد
+        |
+    @isset($title)
+            {{$title}}
+        @endisset
+
     </title>
 
     <!-- Favicon -->

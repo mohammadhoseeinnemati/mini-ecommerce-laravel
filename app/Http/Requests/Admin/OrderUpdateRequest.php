@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Enums\OrderStatus;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OrderUpdateRequest extends FormRequest
@@ -21,36 +22,11 @@ class OrderUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-
         return [
-            'first_name'=>[
+            'status'=>[
                 'required',
-                'persian_alpha',
-                'min:2',
-                'max:60'
-            ],
-            'last_name'=>[
-                'required',
-                'persian_alpha',
-                'min:2',
-                'max:60'
-            ],
-            'email'=>[
-                'required',
-                'email',
-                'unique:App\Models\User,email,'.request()->route()->parameter('userId')
-            ],
-            'phone'=>[
-                'required',
-                'ir_mobile:zero',
-                'unique:App\Models\User,phone,'.request()->route()->parameter('userId')
-            ],
-            'password'=>[
-                'nullable',
-                'min:6',
-                'max:100',
+                'in:'. convertEnumCasesToString(OrderStatus::class)
             ]
-
         ];
     }
 }
