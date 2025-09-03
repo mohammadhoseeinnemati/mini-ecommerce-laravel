@@ -233,6 +233,10 @@ return [
         'mobile_number' => 'شماره تماس',
         'work_number' => 'شماره تماس ثابت',
         'postal_code'=>'کدپستی',
+        'name_en' => 'نام اینگلیسی',
+        'category_id' => 'دسته بندی',
+        'discount' => 'تخفیف',
+        'qty'=>'موجودی'
     ],
 
 ];

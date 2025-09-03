@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\AdminStatus;
+use App\Enums\OrderStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\OrderUpdateRequest;
 use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Product;
 use Doctrine\DBAL\Query;
 use Exception;
 use Illuminate\Http\Request;
@@ -55,8 +59,26 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($userId);
 
+        if($order->status == OrderStatus::cancelled){
+            return backWithError('وضعیت قابل تغییر نیست');
+        }
+
         try {
-            $order->status = $request->input('status');
+            $status = AdminStatus::from($request->input('status'));
+
+            if($status == OrderStatus::cancelled){
+                $orderItems = OrderItem::query()
+                    ->where('order_id', $order->id)
+                    ->get();
+
+                foreach ($orderItems as $orderItem){
+                    Product::query()
+                        ->where('id', $orderItem->product_id)
+                        ->increment('qty', $orderItem->qty);
+                }
+            }
+
+            $order->status = $status;
             $order->save();
         }catch (Exception $exception){
             Log::error($exception);

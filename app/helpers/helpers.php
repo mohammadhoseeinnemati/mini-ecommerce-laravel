@@ -2,6 +2,7 @@
 
 use App\Models\Admin;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
@@ -160,5 +161,21 @@ if(!function_exists('convertEnumCasesToString')){
         }
 
         return implode(',',$string);
+    }
+}
+
+
+
+if(!function_exists('getProductImageUrl')){
+    function getProductImageUrl(?ProductImage $image): string
+    {
+        if(is_null($image)){
+            return asset('assets/admin/images/product-default-image.png');
+        }
+
+        $file =$image->file;
+
+        return \Illuminate\Support\Facades\Storage::url($file->path);
+
     }
 }

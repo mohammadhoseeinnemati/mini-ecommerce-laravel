@@ -6,7 +6,10 @@
 
 namespace App\Models;
 
+use App\Enums\isDefault;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,8 +25,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $discount
  * @property string $description
  * @property int $category_id
- * @property Carbon $creates_at
- * @property Carbon $updates_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string|null $deleted_at
  *
  * @property Category $category
@@ -35,7 +38,6 @@ class Product extends Model
 {
 	use SoftDeletes;
 	protected $table = 'products';
-	public $timestamps = false;
 	public static $snakeAttributes = false;
 
 	protected $casts = [
@@ -44,8 +46,6 @@ class Product extends Model
 		'qty' => 'int',
 		'discount' => 'int',
 		'category_id' => 'int',
-		'creates_at' => 'datetime',
-		'updates_at' => 'datetime'
 	];
 
 	protected $fillable = [
@@ -56,8 +56,6 @@ class Product extends Model
 		'discount',
 		'description',
 		'category_id',
-		'creates_at',
-		'updates_at'
 	];
 
 	public function category()
@@ -69,4 +67,74 @@ class Product extends Model
 	{
 		return $this->hasMany(OrderItem::class);
 	}
+
+	public function images()
+	{
+		return $this->hasMany(ProductImage::class);
+	}
+
+	public function defaultImage()
+	{
+		return $this->hasOne(ProductImage::class)
+            ->where('is_default', isDefault::YES);
+	}
+
+    #[Scope]
+    protected function applySearch(Builder $query):void
+    {
+        $request = request();
+
+        $query
+            ->when($request->filled('search'), function (Builder $query) use ($request) {
+                $Keyword = $request->query('search');
+
+                $query->whereAny([
+                    'name',
+                    'name_en',
+                    'description'
+                ], "LIKE", "%$Keyword%");
+            });
+    }
+
+    #[Scope]
+    protected function applySort(Builder $query): void
+    {
+        $request = request();
+
+        switch ($request->query('sort', 'newest')) {
+            case 'name_asc':
+            {
+                $query
+                    ->orderBy('name',);
+                break;
+            }
+
+            case 'name_desc':
+            {
+                $query
+                    ->orderByDesc('name');
+                break;
+            }
+
+            case 'price_asc':
+            {
+                $query
+                    ->orderBy('price');
+                break;
+            }
+
+            case 'price_desc':
+            {
+                $query
+                    ->orderByDesc('price');
+                break;
+            }
+
+
+            default:
+            {
+                $query->orderByDesc('created_at');
+            }
+        }
+    }
 }

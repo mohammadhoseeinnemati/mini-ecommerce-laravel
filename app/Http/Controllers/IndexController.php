@@ -18,7 +18,7 @@ class IndexController extends Controller
 
         $newestProducts = Product::query()
             ->where('qty', '>', 0)
-            ->orderByDesc('creates_at')
+            ->orderByDesc('created_at')
             ->limit(8)
             ->get();
 

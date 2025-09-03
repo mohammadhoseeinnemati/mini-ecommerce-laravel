@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\LogoutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +52,25 @@ Route::prefix('admin')->as('admin.')->group(function () {
                 Route::patch('update','update')->name('update');
 
                 Route::delete('delete','delete')->name('delete');
+            });
+
+        });
+
+        Route::prefix('products')->as('products.')->controller(ProductController::class)->group(function (){
+            Route::get('/','index')->name('index');
+
+            Route::get('create','create')->name('create');
+            Route::post('store','store')->name('store');
+
+            Route::prefix('{productId}')->group(function (){
+                Route::get('show','show')->name('show');
+
+                Route::get('edit','edit')->name('edit');
+                Route::put('update','update')->name('update');
+
+                Route::delete('delete','delete')->name('delete');
+
+                Route::get('images/{imageId}','removeImage')->name('removeImage');
             });
 
         });
