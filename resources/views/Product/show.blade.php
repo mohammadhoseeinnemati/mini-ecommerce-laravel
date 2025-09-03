@@ -144,33 +144,6 @@
                                 {{$product->name_en}}
                             </p>
                         </div>
-                        <!-- Features Box  -->
-                        <div class="w-full flex flex-col gap-y-4 mt-6">
-                            <h1 class="font-DanaDemiBold text-lg dark:text-gray-200">ویژگی‌ها</h1>
-                            <div
-                                class="grid grid-cols-12 gap-2 child:p-2 child:h-16 child:bg-gray-100 dark:child:bg-gray-900 child:rounded-lg child:flex child:flex-col child:gap-y-1.5">
-                                <div class="col-span-12 md:col-span-6 xl:col-span-4">
-                                    <p class="text-sm text-gray-500">فناوری صفحه‌ نمایش </p>
-                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">
-                                        LTPO Super Retina XDR</p>
-                                </div>
-                                <div class="col-span-12 md:col-span-6 xl:col-span-4">
-                                    <p class="text-sm text-gray-500">نسخه سیستم عامل</p>
-                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">
-                                        iOS 18</p>
-                                </div>
-                                <div class="col-span-12 md:col-span-6 xl:col-span-4">
-                                    <p class="text-sm text-gray-500">رزولوشن دوربین اصلی </p>
-                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">
-                                        48 مگاپیکسل</p>
-                                </div>
-                                <div class="col-span-12 md:col-span-6 xl:col-span-4">
-                                    <p class="text-sm text-gray-500">اندازه</p>
-                                    <p class="line-clamp-1 font-DanaDemiBold text-sm text-slate-800 dark:text-slate-200">
-                                        6.1</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div

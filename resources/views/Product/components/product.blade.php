@@ -25,10 +25,10 @@
         <!-- badge offer -->
         @if($product->discount > 0)
             <span class="product-card_badge">
-                                    {{getProductDiscount($product->price , $product->discount)}}
-                                    %
-                                    تخفیف
-                                </span>
+             {{getProductDiscount($product->price , $product->discount)}}
+               %
+               تخفیف
+              </span>
         @endif
     </div>
     <!-- product img -->

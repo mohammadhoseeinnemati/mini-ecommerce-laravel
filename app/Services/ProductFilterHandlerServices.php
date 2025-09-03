@@ -69,12 +69,12 @@ class ProductFilterHandlerServices
                         break;
 
                     default:
-                        $Query->orderByDesc('creates_at');
+                        $Query->orderByDesc('created_at');
                         break;
                 }
             })
             ->unless($request->filled('sort'), function (Builder $Query) {
-                $Query->orderByDesc('creates_at');
+                $Query->orderByDesc('created_at');
             });
     }
 }
