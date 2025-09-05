@@ -32,34 +32,6 @@ class LoginController extends Controller
             return backWithError('اطلاعات وارد شده نامعتبراست.');
         }
 
-
-        $otpCode = rand(1000, 9999);
-
-        $apiKey = "d01d19be818147f1b26498d86e1e7bb4";
-        $from   = "50002710065216";
-        $to     = $user->phone;
-        $text   = "کد ورود شما: $otpCode";
-
-
-        $response = Http::withOptions([
-            'verify' => base_path('certs/cacert.pem'),
-        ])->post("https://console.melipayamak.com/api/send/simple/{$apiKey}", [
-            'from' => $from,
-            'to'   => $to,
-            'text' => $text,
-        ]);
-
-        $result = $response->json();
-
-
-        Otp::create([
-            'user_id'=> $user->id,
-            'code'=>$otpCode,
-            'expires_at' => now()->addMinutes(2),
-        ]);
-
-        session(['user-otp' => $user->id]);
-
         return redirect()->route('auth.otp.index');
 
     }

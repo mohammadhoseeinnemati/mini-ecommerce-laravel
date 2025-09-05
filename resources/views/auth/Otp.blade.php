@@ -59,14 +59,14 @@
                         </button>
                     </div>
                 </form>
-                <p style="display: flex; justify-content: center" class="mt-4">
-                     کد ورود بعداز دو دقیقه منقضی میشود
+                <p class="login-timer_text">
+                    مانده تا دریافت مجدد کد <span class="login-timer text-blue-500">3:00</span>
                 </p>
-                <a href="{{route('auth.login.index')}}" style="color: royalblue;display: flex;justify-content: center;gap: 5px;margin-top: 15px;">
-                    دریافت مجدد کد
-                    <svg class="size-4 rotate-90 mt-1">
-                        <use href="#chevron"/>
-                    </svg>
+                <a href="{{route('auth.login.index')}}" class="resend-code">
+                       دریافت مجدد کد
+                       <svg class="size-4 rotate-90">
+                           <use href="#chevron"/>
+                       </svg>
                 </a>
             </div>
         </div>

@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'melipayamak' => [
+        'api_key' => env('MELIPAYAMAK_API_KEY'),
+        'from'    => env('MELIPAYAMAK_FROM'),
+        'url'=> env('MELIPAYAMAK_URL'),
+    ],
+
 ];
